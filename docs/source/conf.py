@@ -3,6 +3,7 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import sphinx_rtd_theme
 import sys, os, django
 sys.path.append(os.path.abspath('../../encomp/templates/'))
 sys.path.insert(0, os.path.abspath('../../encomp'))
@@ -19,7 +20,7 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', ]
+extensions = ['sphinx.ext.autodoc', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -31,15 +32,7 @@ exclude_patterns = []
 
 add_module_names = False
 html_theme = 'sphinx_rtd_theme'
-html_theme_path = ["_themes", ]
-html_static_path = ['_static']
 
-# html_theme_options = {
-#     'display_version': False,
-#     # Toc options
-#     'collapse_navigation': True,
-#     'sticky_navigation': False,
-#     'navigation_depth': 5,
-#     'includehidden': False,
-#     'titles_only': True
-# }
+html_theme_options = {
+    'navigation_depth': -1,
+}
