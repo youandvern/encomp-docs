@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section Methods &mdash; Encomp 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Unit Conversions and Constants" href="units_constants.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Encomp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Objects</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Section Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#section_helpers.get_all_aluminum_section_sizes"><code class="docutils literal notranslate"><span class="pre">get_all_aluminum_section_sizes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section_helpers.get_all_steel_section_sizes"><code class="docutils literal notranslate"><span class="pre">get_all_steel_section_sizes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section_helpers.get_aluminum_section_properties"><code class="docutils literal notranslate"><span class="pre">get_aluminum_section_properties()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section_helpers.get_steel_section_properties"><code class="docutils literal notranslate"><span class="pre">get_steel_section_properties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Encomp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Encomp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Section Methods</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/section_methods.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-section_helpers">
+<span id="section-methods"></span><h1>Section Methods<a class="headerlink" href="#module-section_helpers" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="section_helpers.get_all_aluminum_section_sizes">
+<span class="sig-name descname"><span class="pre">get_all_aluminum_section_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#section_helpers.get_all_aluminum_section_sizes" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of all available section sizes for the requested aluminum section type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>section_type</strong> (<em>&quot;Angle&quot;</em><em> | </em><em>&quot;Channel&quot;</em><em> | </em><em>&quot;Circular&quot;</em><em> | </em><em>&quot;Rectangular&quot;</em><em> | </em><em>&quot;WF&quot;</em>) – The name of the section type to retrieve</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of all available section sizes for the requested type</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">all_wf_sections</span> <span class="o">=</span> <span class="n">get_all_aluminum_section_sizes</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">all_wf_sections</span><span class="p">)</span>
+<span class="go">[&quot;I 3 x 1.64&quot;, &quot;I 10 x 10.3&quot;, &quot;WF 5 x 6.49&quot;, &quot;S 4 x 3.28&quot; ...]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="section_helpers.get_all_steel_section_sizes">
+<span class="sig-name descname"><span class="pre">get_all_steel_section_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#section_helpers.get_all_steel_section_sizes" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of all available section sizes for the requested steel section type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>section_type</strong> (<em>&quot;Angle&quot;</em><em> | </em><em>&quot;DoubleAngle&quot;</em><em> | </em><em>&quot;Channel&quot;</em><em> | </em><em>&quot;Circular&quot;</em><em> | </em><em>&quot;Rectangular&quot;</em><em> | </em><em>&quot;T&quot;</em><em> | </em><em>&quot;WF&quot;</em>) – The name of the section type to retrieve</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of all available section sizes for the requested type</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">all_wf_sections</span> <span class="o">=</span> <span class="n">get_all_steel_section_sizes</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">all_wf_sections</span><span class="p">)</span>
+<span class="go">[&quot;W44X335&quot;, &quot;W44X290&quot;, &quot;W44X262&quot;, &quot;W40X655&quot;, &quot;W44X230&quot; ...]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="section_helpers.get_aluminum_section_properties">
+<span class="sig-name descname"><span class="pre">get_aluminum_section_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#section_helpers.get_aluminum_section_properties" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary with physical properties of the requested aluminum section type and size. This method
+expects the <cite>section_size</cite> to match a <cite>Size</cite> in the respective section properties table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>section_type</strong> (<em>str</em>) – The name of the section type to retrieve</p></li>
+<li><p><strong>section_size</strong> (<em>&quot;Angle&quot;</em><em> | </em><em>&quot;Channel&quot;</em><em> | </em><em>&quot;Circular&quot;</em><em> | </em><em>&quot;Rectangular&quot;</em><em> | </em><em>&quot;WF&quot;</em>) – The name of the section size to retrieve</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The physical properties for the section</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">size_options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;WF 8 x 8.32&quot;</span><span class="p">,</span> <span class="s2">&quot;WF 8 x 5.90&quot;</span><span class="p">,</span> <span class="s2">&quot;WF 8 x 10.7&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">size_selector</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;size_a&quot;</span><span class="p">,</span> <span class="s2">&quot;WF 8 x 10.7&quot;</span><span class="p">,</span> <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="n">select_options</span><span class="o">=</span><span class="n">size_options</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">section_properties</span> <span class="o">=</span> <span class="n">get_aluminum_section_properties</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">,</span> <span class="n">size_selector</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="go">9.12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Ix&quot;</span><span class="p">))</span>
+<span class="go">110</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="section_helpers.get_steel_section_properties">
+<span class="sig-name descname"><span class="pre">get_steel_section_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#section_helpers.get_steel_section_properties" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a dictionary with physical properties of the requested steel section type and size. This method expects
+the <cite>section_size</cite> to match one of the AISC_name sizes in the respective section properties table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>section_type</strong> (<em>str</em>) – The name of the section type to retrieve</p></li>
+<li><p><strong>section_size</strong> (<em>&quot;Angle&quot;</em><em> | </em><em>&quot;DoubleAngle&quot;</em><em> | </em><em>&quot;Channel&quot;</em><em> | </em><em>&quot;Circular&quot;</em><em> | </em><em>&quot;Rectangular&quot;</em><em> | </em><em>&quot;T&quot;</em><em> | </em><em>&quot;WF&quot;</em>) – The name of the section size to retrieve (AISC_name size)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The AISC defined physical properties for the section</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">size_options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;W14X99&quot;</span><span class="p">,</span> <span class="s2">&quot;W14X109&quot;</span><span class="p">,</span> <span class="s2">&quot;W14X120&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">size_selector</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;size_a&quot;</span><span class="p">,</span> <span class="s2">&quot;W14X99&quot;</span><span class="p">,</span> <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="n">select_options</span><span class="o">=</span><span class="n">size_options</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">section_properties</span> <span class="o">=</span> <span class="n">get_steel_section_properties</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">,</span> <span class="n">size_selector</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="go">29.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Ix&quot;</span><span class="p">))</span>
+<span class="go">1110</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="units_constants.html" class="btn btn-neutral float-right" title="Unit Conversions and Constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
