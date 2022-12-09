@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculation Objects &mdash; Encomp 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Styling Variable Names and Units" href="styling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Encomp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculation Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Assumption"><code class="docutils literal notranslate"><span class="pre">Assumption</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Calculation"><code class="docutils literal notranslate"><span class="pre">Calculation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base_definitions.Calculation.get_value"><code class="docutils literal notranslate"><span class="pre">Calculation.get_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#base_definitions.Calculation.result"><code class="docutils literal notranslate"><span class="pre">Calculation.result()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Comparison"><code class="docutils literal notranslate"><span class="pre">Comparison</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base_definitions.Comparison.get_value"><code class="docutils literal notranslate"><span class="pre">Comparison.get_value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.ComparisonForced"><code class="docutils literal notranslate"><span class="pre">ComparisonForced</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Heading"><code class="docutils literal notranslate"><span class="pre">Heading</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Input"><code class="docutils literal notranslate"><span class="pre">Input</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base_definitions.Input.get_value"><code class="docutils literal notranslate"><span class="pre">Input.get_value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.InputTable"><code class="docutils literal notranslate"><span class="pre">InputTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.ResultTable"><code class="docutils literal notranslate"><span class="pre">ResultTable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.TextBlock"><code class="docutils literal notranslate"><span class="pre">TextBlock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_definitions.Title"><code class="docutils literal notranslate"><span class="pre">Title</span></code></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Encomp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Encomp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Calculation Objects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/calc_objects.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-base_definitions">
+<span id="calculation-objects"></span><h1>Calculation Objects<a class="headerlink" href="#module-base_definitions" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Assumption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Assumption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assumption</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Assumption" title="Permalink to this definition"></a></dt>
+<dd><p>This is meant to clearly declare important assumptions which form the basis of your calculation template.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>assumption</strong> (<em>str</em>) – The text describing your assumption</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;The seismic provisions of ASCE 7-16 control design&quot;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; [ASSUME] The seismic provisions of ASCE 7-16 control design</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Calculation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Calculation" title="Permalink to this definition"></a></dt>
+<dd><p>This is the primary object used to define a calculation expression or calculated variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable_name</strong> (<em>str</em>) – The symbolic name for the result of this calculation (LaTex formatted)</p></li>
+<li><p><strong>expression</strong> (<em>a variable expression</em><em> [</em><em>i.e. a+b</em><em>] or </em><em>a number</em>) – The calculation expression</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – The physical units of the resulting variable (LaTex formatted), defaults to None</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – A text description for the calculation or calculated variable, defaults to None</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the calculation, defaults to None</p></li>
+<li><p><strong>result_check</strong> (<em>bool</em><em>, </em><em>optional</em>) – This is used to indicate any <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a> that should be checked as a final result
+of your calculation template. When set to True, this <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a> will be displayed in the “Results”
+section of your design portal, defaults to False</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; c = a + b = 1ft + 4ft = 5ft</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="base_definitions.Calculation.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Calculation.get_value" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the calculated value of the expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the evaluated expression</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float or int</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="base_definitions.Calculation.result">
+<span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Calculation.result" title="Permalink to this definition"></a></dt>
+<dd><p>See <cite>get_value</cite></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Comparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comparator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OK'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">false_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ERROR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Comparison" title="Permalink to this definition"></a></dt>
+<dd><p>This is an object used to compare variables or constants as an explicit check in the design process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="#base_definitions.Input" title="base_definitions.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>, <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a>, or a number) – The first variable or number</p></li>
+<li><p><strong>comparator</strong> (<em>'&lt;'</em><em>, </em><em>'&lt;='</em><em>, </em><em>'='</em><em>, </em><em>'!='</em><em>, </em><em>'=='</em><em>, </em><em>'&gt;'</em><em>, or </em><em>'&gt;='</em>) – The comparision symbol as a string</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="#base_definitions.Input" title="base_definitions.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>, <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a>, or a number) – The second variable or number</p></li>
+<li><p><strong>true_message</strong> (<em>str</em><em>, </em><em>optional</em>) – The message that should desplay if the <a class="reference internal" href="#base_definitions.Comparison" title="base_definitions.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">Comparison</span></code></a> result is true, defaults to “OK”</p></li>
+<li><p><strong>false_message</strong> (<em>str</em><em>, </em><em>optional</em>) – The message that should desplay if the <a class="reference internal" href="#base_definitions.Comparison" title="base_definitions.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">Comparison</span></code></a> result is false, defaults to
+“ERROR”</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – A text description for the comparison, defaults to None</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the comparison, defaults to None</p></li>
+<li><p><strong>result_check</strong> (<em>bool</em><em>, </em><em>optional</em>) – This is used to indicate any <a class="reference internal" href="#base_definitions.Comparison" title="base_definitions.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">Comparison</span></code></a> that should be checked as a final result
+of your calculation template. When set to True, this <a class="reference internal" href="#base_definitions.Comparison" title="base_definitions.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">Comparison</span></code></a> will be displayed in the “Results”
+section of your design portal, defaults to False</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Comparison</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; Check a &gt; b</span>
+<span class="go">                                    1 ft &gt; 4 ft</span>
+<span class="go">                                    --&gt; ERROR</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="base_definitions.Comparison.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Comparison.get_value" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the calculated value of the comparison (True or False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The result of the evaluated comparison</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Comparison</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.ComparisonForced">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ComparisonForced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comparator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comparator2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.ComparisonForced" title="Permalink to this definition"></a></dt>
+<dd><p>This is an object for declaring the result of a comparison. It does not actually compare the values given, but
+rather displays the comparision exactly as it is given. This can be used to annotate or embellish if/else logic in
+your calculation templates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="#base_definitions.Input" title="base_definitions.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>, <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a>, or a number) – The first variable or number</p></li>
+<li><p><strong>comparator</strong> (<em>'&lt;'</em><em>, </em><em>'&lt;='</em><em>, </em><em>'='</em><em>, </em><em>'!='</em><em>, </em><em>'=='</em><em>, </em><em>'&gt;'</em><em>, or </em><em>'&gt;='</em>) – The comparision symbol as a string</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="#base_definitions.Input" title="base_definitions.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>, <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a>, or a number) – The second variable or number</p></li>
+<li><p><strong>comparator2</strong> (<em>'&lt;'</em><em>, </em><em>'&lt;='</em><em>, </em><em>'='</em><em>, </em><em>'!='</em><em>, </em><em>'=='</em><em>, </em><em>'&gt;'</em><em>, or </em><em>'&gt;='</em><em>, </em><em>optional</em>) – A second comparision symbol as a string, defaults to None</p></li>
+<li><p><strong>c</strong> (<a class="reference internal" href="#base_definitions.Input" title="base_definitions.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a>, <a class="reference internal" href="#base_definitions.Calculation" title="base_definitions.Calculation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code></a>, or a number, optional) – A third variable or number, defaults to None</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – A text description for the comparison, defaults to None</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the comparison, defaults to None</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ComparisonForced</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Requirement for passing&quot;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; Requirement for passing:</span>
+<span class="go">                                    --&gt; a &gt; b</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Heading">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Heading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numbered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Heading" title="Permalink to this definition"></a></dt>
+<dd><p>This object can be used to add headings/section titles to calculation reports. If numbered, the heading number
+will auto-increment. The text size will generally be larger for higher levels (i.e. 1) than lower levels (i.e. 6)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text for the heading or title</p></li>
+<li><p><strong>head_level</strong> (<em>int</em><em>, </em><em>optional</em>) – The level of the heading from 1 to 6. Each heading level in its corresponding position would
+display as 1.2.3.4.5.6. before the heading text, defaults to 1</p></li>
+<li><p><strong>numbered</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the heading should be numbered or not, defaults to True</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the heading, defaults to None</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Default First Heading&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Second Level Heading&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Another Second Level Heading&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Heading Without Number&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt;    1.  Default First Heading</span>
+<span class="go">                                    1.1.  Second Level Heading</span>
+<span class="go">                                    1.2.  Another Second Level Heading</span>
+<span class="go">                                    Heading Without Number</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Input">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'number'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Input" title="Permalink to this definition"></a></dt>
+<dd><p>This is the primary object used to define an input which can change from calculation to calculation. Inputs may
+be numbers, text, or select elements with multiple options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable_name</strong> (<em>str</em>) – The symbolic name for this input variable (LaTex formatted)</p></li>
+<li><p><strong>default_value</strong> (<em>float</em><em>, </em><em>int</em><em>, or </em><em>str</em>) – The default value for the input which will be overridden when calculation inputs are
+updated, defaults to 0</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – The physical units of the input variable (LaTex formatted), defaults to None</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – A text description for the input variable, defaults to None</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the input, defaults to None</p></li>
+<li><p><strong>input_type</strong> (<em>&quot;number&quot;</em><em>, </em><em>&quot;select&quot;</em><em>, or </em><em>&quot;text&quot;</em><em>, </em><em>optional</em>) – The type of input field used on the design portal; a “select” type must include a list of
+options to choose from in the <cite>select_options</cite> parameter, defaults to number</p></li>
+<li><p><strong>select_options</strong> (<em>str</em><em>[</em><em>]</em><em>, </em><em>float</em><em>[</em><em>]</em><em>, or </em><em>int</em><em>[</em><em>]</em><em>, </em><em>optional</em>) – A list of options for a select type input variable, defaults to None</p></li>
+<li><p><strong>min_value</strong> (<em>float</em><em>, </em><em>int</em><em>, or </em><em>None</em><em>, </em><em>optional</em>) – Set the minimum value a number input is allowed to be, defaults to None</p></li>
+<li><p><strong>max_value</strong> (<em>float</em><em>, </em><em>int</em><em>, or </em><em>None</em><em>, </em><em>optional</em>) – Set the maximum value a number input is allowed to be, defaults to None</p></li>
+<li><p><strong>num_step</strong> (<em>float</em><em>, </em><em>int</em><em>, or </em><em>None</em><em>, </em><em>optional</em>) – Specifies the interval between legal numbers in a number input field; see
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/step">https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/step</a>, defaults to None</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; c = a + b = 1ft + 4ft = 5ft</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="base_definitions.Input.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Input.get_value" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the value of the input. This will not always return the default value that is set in the template,
+but will return the updated input value in each unique calculation instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current value of the input variable</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float, int, or str</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.InputTable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InputTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'table'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'any'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.InputTable" title="Permalink to this definition"></a></dt>
+<dd><p>[Work in Progress] This object will be used to take input in the form of a table.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.ResultTable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ResultTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.ResultTable" title="Permalink to this definition"></a></dt>
+<dd><p>[Work in Progress] This object will be used to define results in the form of a table or matrix.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.TextBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TextBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.TextBlock" title="Permalink to this definition"></a></dt>
+<dd><p>This displays a block of text in the calculation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text</p></li>
+<li><p><strong>reference</strong> (<em>str</em><em>, </em><em>optional</em>) – A short text reference (or code reference) to accompany the text, defaults to None</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_definitions.Title">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base_definitions.Title" title="Permalink to this definition"></a></dt>
+<dd><p>This can be used for the main title in the calculation report. It is larger and bolder than the
+<a class="reference internal" href="#base_definitions.Heading" title="base_definitions.Heading"><code class="xref py py-class docutils literal notranslate"><span class="pre">Heading</span></code></a> and does not have the option to be numbered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>title</strong> (<em>str</em>) – The title</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="styling.html" class="btn btn-neutral float-left" title="Styling Variable Names and Units" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
