@@ -268,7 +268,7 @@ This is the complete |location_link| for the above example.
 
 .. |pdf_embed| raw:: html
 
-   <iframe src="_images/example_calc.pdf" width="100%" height="600px"></iframe>
+   <iframe src="_static/example_calc.pdf" width="100%" height="600px"></iframe>
 
 
 Design Portal
