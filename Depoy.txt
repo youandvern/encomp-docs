@@ -1,9 +1,0 @@
-Instruction for GH Pages deploy:
-
-Make any changes necessary on main branch.
-Push changes to main.
-checkout and pull gh-pages branch
-reset gh-pages branch to main: git reset --hard main
-build docs: make html
-force push: git push --force origin gh-pages
-return to main branch

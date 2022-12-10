@@ -5,8 +5,8 @@
 
 import sphinx_rtd_theme
 import sys, os, django
-sys.path.append(os.path.abspath('../../../encomp/templates/'))
-sys.path.insert(0, os.path.abspath('../../../encomp'))
+sys.path.append(os.path.abspath('../../encomp/templates/'))
+sys.path.insert(0, os.path.abspath('../../encomp'))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'encomp.settings.base'
 django.setup()
 # -- Project information -----------------------------------------------------
