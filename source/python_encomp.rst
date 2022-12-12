@@ -1,5 +1,13 @@
+.. _python:
+
 Using Python with Encomp
 ========================
+
+Indentation
+-----------
+
+Python is a syntactically light language, but the indentations are very important. If you have never used 
+Python before here's a helpful resource for understanding indentation: https://www.w3schools.com/python/gloss_python_indentation.asp 
 
 Positional vs. Keyword Arguments
 --------------------------------

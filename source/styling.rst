@@ -1,3 +1,5 @@
+.. _styling:
+
 Styling Variable Names and Units
 ================================
 

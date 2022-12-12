@@ -1,5 +1,7 @@
-Examples
-========
+.. _examples:
+
+Calculation Object Examples
+===========================
 
 This section will show fully featured examples of each object type with the resulting calculation 
 report and design portal view.

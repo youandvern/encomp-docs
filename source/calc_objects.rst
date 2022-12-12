@@ -1,5 +1,7 @@
-Calculation Objects
-===================
+.. _objects:
+
+Calculation Object Details
+==========================
 
 .. automodule:: base_definitions
    :members:

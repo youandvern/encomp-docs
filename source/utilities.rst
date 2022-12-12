@@ -1,3 +1,5 @@
+.. _utilities:
+
 Calculation Utilities
 =====================
 
