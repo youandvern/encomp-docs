@@ -6,5 +6,6 @@ checkout and pull gh-pages branch
 reset gh-pages branch to main: git reset --hard main
 build docs: make html
 copy static docs from manally_move_to_docs to docs folder
+commit all changes
 force push: git push --force origin gh-pages
 return to main branch
