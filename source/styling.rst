@@ -40,6 +40,18 @@ the following Input object shows how a multiple character caret is coded and dis
 
    Display Result:   min\ :sup:`abc`\ = 1 m\ :sup:`123`\  
 
+Greek Letters and Symbols
+-------------------------
+
+Greek letters and symbols are added with standard LaTex notation and can be combined with any other notations (such as subscripts and superscripts).
+Many of the most common letters and symbols are listed at https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols.
+
+For example, 
+
+   Coded Definition: :code:`Input("\\phi_m", 0.9)` 
+
+   Display Result:   :math:`\phi`\ :sub:`m`\ = 0.9  
+
 
 Adding Spaces
 -------------

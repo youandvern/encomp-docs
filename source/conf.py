@@ -12,10 +12,11 @@ django.setup()
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Encomp'
-copyright = '2022, Andrew Young'
+project = 'Efficalc'
+copyright = '2023, Andrew Young'
 author = 'Andrew Young'
 release = '0.1'
+html_favicon = '_static/favicon.ico'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

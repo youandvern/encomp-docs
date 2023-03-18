@@ -265,7 +265,7 @@ Next Steps
 
 From here, the app is your oyster! Create any templates you can imagine and use them for every project that comes your way.
 
-If want to dive deeper and learn more about using Encomp, we have a number of helpful resources listed below. If 
+If want to dive deeper and learn more about using Efficalc, we have a number of helpful resources listed below. If 
 at any point you want to contact us or give some feedback, we would love to hear from you. We can be contacted through the 
 contact form on the site or by email at team@encompapp.com. 
 
@@ -273,5 +273,5 @@ Here are some links to more detailed documentation:
 
 * A more advanced example: :ref:`example-calc`
 * Detailed descriptions of the calculation objects: :ref:`objects`
-* Some notes about using Python with encomp: :ref:`python`
+* Some notes about using Python with efficalc: :ref:`python`
 * The documentation home page: :ref:`home-page`

@@ -1,7 +1,7 @@
 .. _python:
 
-Using Python with Encomp
-========================
+Using Python with Efficalc
+==========================
 
 Indentation
 -----------
@@ -12,7 +12,7 @@ Python before here's a helpful resource for understanding indentation: https://w
 Positional vs. Keyword Arguments
 --------------------------------
 
-Encomp's calculation objects can be created using either positional or keyword arguments. There are some cases 
+Efficalc's calculation objects can be created using either positional or keyword arguments. There are some cases 
 where using positional arguments might make more sense and others where keyword arguments will be very useful. 
 
 Positional
