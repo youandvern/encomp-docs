@@ -26,7 +26,7 @@ Here is the complete |location_link| for this example.
 
 .. |location_link| raw:: html
 
-   <a href="_images/simple_steel_beam_report.pdf" target="_blank">Calculation Report</a>
+   <a href="_static/simple_steel_beam_report.pdf" target="_blank">Calculation Report</a>
 
 
 .. |pdf_embed| raw:: html
