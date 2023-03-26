@@ -18,6 +18,7 @@ Get Started
 -----------
 
 * :ref:`start`
+* :ref:`next-steps`
 * :ref:`example-calc`
 
 
@@ -57,6 +58,7 @@ Tables
    :hidden:
 
    get_started
+   next_steps
    example_calc
 
 

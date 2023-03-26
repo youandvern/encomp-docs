@@ -3,199 +3,125 @@
 Example Calculation
 ===================
 
-TODO
-====
+This full example will display some of the more powerful features of efficalc templates that are displayed in :ref:`next-steps`.
 
-TODO: break this into a new "Advanced Features" page. This page can just be the full example that references each 
-section on the new page. 
+To explore the different elements we use here, you can copy and paste this code into your own template and modify it as you like.
 
-This full example will take you through some of the more intermediate/advanced features of efficalc templates. 
-If this is your first time on the site, take a look at :ref:`start` for a more introductory example. 
 
-This example will break down
-    * Efficalc provided section properties
-    * Conditional logic with if/else statements
-    * Design checks using :code:`Comparison`
-    * Unit conversions
-    * Adding code references to calculations 
+Design Portal
+-------------
 
-Using efficalc provided section properties
-------------------------------------------
-
-This example calculation will be a simple wide flange beam design for someone trying to find the optimal section 
-size for their beam. By using the provided section properties, we can easily select different sections we want to 
-try in the design portal:
-
-.. image:: /_static/example_calc/section_select.png
-    :alt: Design portal results with large triangle
+.. image:: /_static/example_calc/example_design.png
+    :alt: Design portal for steel beam example
     :align: center
 
-Step-By-Step
-^^^^^^^^^^^^
 
-There are three simple set up steps for selecting and using sections in a template:
+Calculation Report 
+------------------
 
-    #. Get the size options
-    #. Create a selector input
-    #. Get section properties from the selected option
+Here is the complete |location_link| for this example.
 
-We can use the functions described in :ref:`sections` to get a complete list of available sizes:
+|pdf_embed|
 
-    :code:`all_wf_sections = get_all_steel_section_sizes("WF")`
 
-Then we can create a selector input named "section" with our sizes:
+.. |location_link| raw:: html
 
-    :code:`section = Input("section", "W18X40", input_type="select", select_options=all_wf_sections)`
+   <a href="_images/simple_steel_beam_report.pdf" target="_blank">Calculation Report</a>
 
-.. note:: 
-    The default value for the selector input must be one of the available size names in :ref:`steel-sections` i.e. "W18X40"
 
-Finally, to get a section property (see all available properties in :ref:`steel-sections`) we take two steps:
+.. |pdf_embed| raw:: html
 
-    #. Get all properties for the selected section: 
-    
-        :code:`section_properties = get_steel_section_properties("WF", section.get_value())`
+   <iframe src="_static/simple_steel_beam_report.pdf" width="100%" height="600px"></iframe>
 
-    #. Get each required property in a `Calculation` object: 
-    
-        :code:`d = Calculation("d", section_properties.get("d"), "in")`
-        
-        :code:`Zx = Calculation("Z_x", section_properties.get("Zx"), "in^3")`
 
-Now, anytime you choose a section, the right property will be used in the calculations. Whenever we need to reference the 
-property, we can use it just like any variable:
+Complete Code 
+-------------
 
-    :code:`Mp = Calculation("M_p", Fy * Zx, "kip-in")`
-
-.. note:: 
-    For steel wide flange sections, efficalc has over 350 options to choose from. Instead of providing all options to the selector
-    input, you can provide (1) your own list of sizes or (2) a sub-list of all sizes 
-       
-        1. :code:`["W18X40", "W18X46", "W18X50"]`
-        2. :code:`relevant_sizes = all_wf_sections[150:200]`
-
-Putting this together with some headings and descriptions, we will have:
-
-Complete Code
-^^^^^^^^^^^^^
-
-    .. code-block:: python
+.. code-block:: python
         :linenos:
 
         from templates.encomp_utils import *
 
         all_wf_sections = get_all_steel_section_sizes("WF")
-        relevant_sizes = all_wf_sections[150:200]
 
         def calculation():
+            Title("Steel Beam Moment Strength")
+
+            TextBlock("Flexural strength of a steel wide-flange beam section.")
+
+            Heading("Assumptions", numbered=False)
+            Assumption("AISC 14th Edition controls design")
+            Assumption("Beam web is unstiffened")
 
             Heading("Inputs", numbered=False)
-            section = Input("section", "W18X40", input_type="select", select_options=relevant_sizes, description="Steel beam section size")
+
+            Mu = Input("M_u", 30, "kip-ft", "Beam ultimate moment demand")
+            Lbu = Input("L_b", 20, "ft", "Beam unbraced length")
+
+            section = Input("section", "W18X40", description="Beam section size",
+                            input_type="select", select_options=all_wf_sections[150:200])
+
             Fy = Input("F_y", 50, "ksi", "Steel yield strength")
+            Fu = Input("F_u", 65, "ksi", "Steel ultimate strength")
+            Es = Input("E", 29000, "ksi", "Modulus of elasticity")
+
+            Cb = Input("C_b", 1.0, "", "Lateral-torsional buckling modification factor", reference="AISC F1(3)")
 
             Heading("Section Properties", numbered=False)
             section_properties = get_steel_section_properties("WF", section.get_value())
+            b = Calculation("b", section_properties.get("bf"), "in")
             d = Calculation("d", section_properties.get("d"), "in")
+            Sx = Calculation("S_x", section_properties.get("Sx"), "in^3")
             Zx = Calculation("Z_x", section_properties.get("Zx"), "in^3")
-            
-            Heading("Calculations", numbered=False)
-            Mp = Calculation("M_p", Fy * Zx, "kip-in", "Nominal plastic moment strength", result_check=True)
-            
-
-Calculation Report
-^^^^^^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_report.png
-    :alt: Calculation report with section size
-    :align: center
-
-Design Portal
-^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_design.png
-    :alt: Design portal with section size
-    :align: center
+            ry = Calculation("r_{y}", section_properties.get("ry"), "in")
+            rts = Calculation("r_{ts}", section_properties.get("rts"), "in")
+            J = Calculation("J", section_properties.get("J"), "in^4")
+            ho = Calculation("h_o", section_properties.get("ho"), "in")
+            bfl2tf = Calculation("b_f/2t_f", section_properties.get("bfl2tf"), "")
+            hltw = Calculation("h/t_w", section_properties.get("hltw"), "")
 
 
-Using if/else statements for conditional calculations
------------------------------------------------------
+            Heading("Beam Flexural Capacity", head_level=1)
+            Pb = Calculation("\phi_{b}", 0.9, "", "Flexural resistance factor", reference="AISC F1(1)")
 
-Often in codified calculations, some design equations will only be applicable under specific conditions. This is an ideal
-scenario for using conditional logic and if/else statements. Efficalc is designed to support conditional rendering of 
-calculations in your calculation reports or design interface.
+            Heading("Section Compactness", head_level=2)
+            ypf = Calculation("\lambda_{pf}", 0.38 * SQRT(E / Fy), "", reference="AISC Table B4.1b(10)")
+            Comparison(bfl2tf, "<=", ypf, true_message="CompactFlange", false_message="ERROR:NotCompactFlange", result_check=False)
 
-Step-By-Step
-^^^^^^^^^^^^
+            ypw = Calculation("\lambda_{pw}", 3.76 * SQRT(E / Fy), "", reference="AISC Table B4.1b(15)")
+            Comparison(hltw, "<=", ypw, true_message="CompactWeb", false_message="ERROR:NotCompactWeb", result_check=False)
 
-In this example 
+            Heading("Plastic Moment Strength", head_level=2)
+            Mp = Calculation("M_{p}", Fy * Zx / ft_to_in, "kip-ft", "Nominal plastic moment strength",
+                            reference="AISC Eq. F2-1")
 
-Complete Code
-^^^^^^^^^^^^^
+            Heading("Yielding Strength", head_level=2)
+            Mny = Calculation("M_{ny}", Mp, "kip-ft", reference="AISC Eq. F2-1")
 
-    .. code-block:: python
-        :linenos:
+            Heading("Lateral-Torsional Buckling", head_level=2)
+            Lp = Calculation("L_{p}", 1.76 * ry * SQRT(E / Fy) / ft_to_in, "ft", reference="AISC Eq. F2-5")
+            cc = Calculation("c", 1.0, "", reference="AISC Eq. F2-8a")
+            Lr = Calculation("L_{r}", 1.95 * rts / ft_to_in * Es / (0.7 * Fy) * SQRT(
+                J * cc / (Sx * ho) + SQRT((J * cc / (Sx * ho)) ** 2 + 6.76 * (0.7 * Fy / E) ** 2)), "ft",
+                            reference="AISC Eq. F2-6")
 
-        from templates.encomp_utils import *
+            if Lbu.result() <= Lp.result():
+                ComparisonForced(Lbu, "<=", Lp)
+                Mnl = Calculation("M_{nltb}", Mp, "kip-ft", "The limit state of lateral-torsional buckling does not apply",
+                                reference="AISC F2.2(a)")
+            elif Lbu.result() > Lr.result():
+                ComparisonForced(Lbu, ">", Lr)
+                Fcr = Calculation("F_{cr}", Cb * PI ** 2 * Es / (Lbu * ft_to_in / rts) ** 2 + SQRT(
+                    1 + 0.078 * J * cc / (Sx * ho) * (Lbu * ft_to_in / rts) ** 2), "ksi", reference="AISC Eq. F2-4")
+                Mncr = Calculation("M_{ncr}", Fcr * Sx / ft_to_in, "kip-ft", reference="AISC F2.2(c)")
+                Mnl = Calculation("M_{nltb}", MIN(Mncr, Mp), "kip-ft", reference="AISC Eq. F2-3")
+            else:
+                ComparisonForced(Lp, "<", Lbu, "<=", Lr)
+                Mncr = Calculation("M_{ncr}",
+                                Cb * BRACKETS(Mp - BRACKETS(Mp - 0.7 * Fy * Sx / ft_to_in) * (Lbu - Lp) / (Lr - Lp)),
+                                "kip-ft", reference="AISC F2.2(b)")
+                Mnl = Calculation("M_{nltb}", MIN(Mncr, Mp), "kip-ft", reference="AISC Eq. F2-2")
 
-        all_wf_sections = get_all_steel_section_sizes("WF")
-        relevant_sizes = all_wf_sections[150:200]
-
-        def calculation():
-
-            Heading("Inputs", numbered=False)
-
-Calculation Report
-^^^^^^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_report.png
-    :alt: Calculation report with section size
-    :align: center
-
-Design Portal
-^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_design.png
-    :alt: Design portal with section size
-    :align: center
-
-
-Using if/else statements for conditional calculations -- TODO
------------------------------------------------------
-
-Often in codified calculations, some design equations will only be applicable under specific conditions. This is an ideal
-scenario for using conditional logic and if/else statements. Efficalc is designed to support conditional rendering of 
-calculations in your calculation reports or design interface.
-
-Step-By-Step
-^^^^^^^^^^^^
-
-There are three simple set up steps
-
-Complete Code
-^^^^^^^^^^^^^
-
-    .. code-block:: python
-        :linenos:
-
-        from templates.encomp_utils import *
-
-        all_wf_sections = get_all_steel_section_sizes("WF")
-        relevant_sizes = all_wf_sections[150:200]
-
-        def calculation():
-
-            Heading("Inputs", numbered=False)
-
-Calculation Report
-^^^^^^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_report.png
-    :alt: Calculation report with section size
-    :align: center
-
-Design Portal
-^^^^^^^^^^^^^
-
-.. image:: /_static/example_calc/section_design.png
-    :alt: Design portal with section size
-    :align: center
+            Heading("Controlling Strength", head_level=2)
+            PMn = Calculation("\phi M_n", Pb * MIN(Mny, Mnl), "kip-ft", "Design flexural strength of the section", result_check=True)
+            Comparison(Mu, "<=", PMn)
