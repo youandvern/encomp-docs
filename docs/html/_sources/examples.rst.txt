@@ -265,7 +265,7 @@ This is the complete |location_link| for the above example.
 
 .. |location_link| raw:: html
 
-   <a href="_images/example_calc.pdf" target="_blank">Calculation Report</a>
+   <a href="_static/example_calc.pdf" target="_blank">Calculation Report</a>
 
 
 .. |pdf_embed| raw:: html
