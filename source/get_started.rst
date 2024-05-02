@@ -76,7 +76,7 @@ The blank template will look like this:
     .. code-block:: python
         :linenos:
 
-        from templates.encomp_utils import *
+        from efficalc import *
 
 
         def calculation():
@@ -105,7 +105,7 @@ will not be used; they can be defined without assigning to a variable (like assu
 
     .. code-block:: python
 
-        h = Calculation("h", SQRT(a**2 + b**2), "in", "The hypotenuse of the triangle", result_check=True)
+        h = Calculation("h", sqrt(a**2 + b**2), "in", "The hypotenuse of the triangle", result_check=True)
         Calculation("A", a * b / 2, "in^2", "Area of the triangle", result_check=True)
         Calculation("p", a + b + h, "in", "Perimeter of the triangle", result_check=True)
 
@@ -114,7 +114,7 @@ Putting it all together gives us:
     .. code-block:: python
         :linenos:
 
-        from templates.encomp_utils import *
+        from efficalc import *
 
 
         def calculation():
@@ -128,7 +128,7 @@ Putting it all together gives us:
             b = Input("b", 1, "in", "Side B of the triangle")
 
 
-            h = Calculation("h", SQRT(a**2 + b**2), "in", "The hypotenuse of the triangle", result_check=True)
+            h = Calculation("h", sqrt(a**2 + b**2), "in", "The hypotenuse of the triangle", result_check=True)
             Calculation("A", a * b / 2, "in^2", "Area of the triangle", result_check=True)
             Calculation("p", a + b + h, "in", "Perimeter of the triangle", result_check=True)
 

@@ -17,6 +17,11 @@ These example will break down
 Using efficalc provided section properties
 ------------------------------------------
 
+.. note:: 
+    This example will be using the section properties provided in the open-source efficalc library. 
+    For more information about the types of sections available, check out https://youandvern.github.io/efficalc/section_properties.html
+
+
 This example calculation will be a simple wide flange beam design for someone trying to find the optimal section 
 size for their beam. By using the provided section properties, we can easily select different sections we want to 
 try in the design portal:
@@ -34,28 +39,25 @@ There are three simple set up steps for selecting and using sections in a templa
     #. Create a selector input
     #. Get section properties from the selected option
 
-We can use the functions described in :ref:`sections` to get a complete list of available sizes:
+We can use the list of available sizes that is imported from :code:`efficalc.sections`:
 
-    :code:`all_wf_sections = get_all_steel_section_sizes("WF")`
+    :code:`ALL_AISC_WIDE_FLANGE_NAMES`
 
 Then we can create a selector input named "section" with our sizes:
 
-    :code:`section = Input("section", "W18X40", input_type="select", select_options=all_wf_sections)`
+    :code:`section = Input("section", "W18X40", input_type="select", select_options=ALL_AISC_WIDE_FLANGE_NAMES)`
 
-.. note:: 
-    The default value for the selector input must be one of the available size names in :ref:`steel-sections` i.e. "W18X40"
-
-Finally, to get a section property (see all available properties in :ref:`steel-sections`) we take two steps:
+Finally, to get a specific section property we take two steps:
 
     #. Get all properties for the selected section: 
     
-        :code:`section_properties = get_steel_section_properties("WF", section.get_value())`
+        :code:`section_properties = get_aisc_wide_flange(section.get_value())`
 
-    #. Get each required property in a `Calculation` object: 
+    #. Place each required property in a `Calculation` object: 
     
-        :code:`d = Calculation("d", section_properties.get("d"), "in")`
+        :code:`d = Calculation("d", section_properties.d, "in")`
         
-        :code:`Zx = Calculation("Z_x", section_properties.get("Zx"), "in^3")`
+        :code:`Zx = Calculation("Z_x", section_properties.Zx, "in^3")`
 
 Now, anytime you choose a section, the right property will be used in the calculations. Whenever we need to reference the 
 property, we can use it just like any variable:
@@ -67,7 +69,7 @@ property, we can use it just like any variable:
     input, you can provide (1) your own list of sizes or (2) a sub-list of all sizes 
        
         1. :code:`["W18X40", "W18X46", "W18X50"]`
-        2. :code:`relevant_sizes = all_wf_sections[150:200]`
+        2. :code:`relevant_sizes = ALL_AISC_WIDE_FLANGE_NAMES[150:200]`
 
 Putting this together with some headings and descriptions, we will have:
 
@@ -77,21 +79,19 @@ Complete Code
     .. code-block:: python
         :linenos:
 
-        from templates.encomp_utils import *
-
-        all_wf_sections = get_all_steel_section_sizes("WF")
-        relevant_sizes = all_wf_sections[150:200]
+        from efficalc import *
+        from efficalc.sections import *
 
         def calculation():
 
             Heading("Inputs", numbered=False)
-            section = Input("section", "W18X40", input_type="select", select_options=relevant_sizes, description="Steel beam section size")
+            section = Input("section", "W18X40", input_type="select", select_options=ALL_AISC_WIDE_FLANGE_NAMES[150:200], description="Steel beam section size")
             Fy = Input("F_y", 50, "ksi", "Steel yield strength")
 
             Heading("Section Properties", numbered=False)
-            section_properties = get_steel_section_properties("WF", section.get_value())
-            d = Calculation("d", section_properties.get("d"), "in")
-            Zx = Calculation("Z_x", section_properties.get("Zx"), "in^3")
+            section_properties = get_aisc_wide_flange(section.get_value())
+            d = Calculation("d", section_properties.d, "in")
+            Zx = Calculation("Z_x", section_properties.Zx, "in^3")
             
             Heading("Calculations", numbered=False)
             Mp = Calculation("M_p", Fy * Zx, "kip-in", "Nominal plastic moment strength", result_check=True)
@@ -141,7 +141,7 @@ we want to display the constant limit as 24 inches OR 12 inches; not both.
 
 First we calculate V\ :sub:`s-lim` according to table 9.7.6.2.2
 
-    :code:`Vs_lim = Calculation('V_{s-lim}', 4 * SQRT(fc) * bw * d, "lbs")`
+    :code:`Vs_lim = Calculation('V_{s-lim}', 4 * sqrt(fc) * bw * d, "lbs")`
 
 Then we can handle the conditional check. To compare variables (Input, Calculation, etc.) in a python if statement, we can get the
 value using the :code:`.get_value()` method. This gets the value of the variable in a number that can also be compared with plain
@@ -151,11 +151,11 @@ numbers (i.e. 2, 0.34, etc.), not just variables.
 
 Then if this statement is true, we want the maximum allowed reinforcement spacing to be the lesser of d/2 and 24:
 
-    :code:`Calculation('s_{max}', MIN(d / 2, 24), "in")`
+    :code:`Calculation('s_{max}', minimum(d / 2, 24), "in")`
 
 To handle the case where the above check is not true and we should use the lesser of d/4 and 12, we can add an else block with:
 
-    :code:`Calculation('s_{max}', MIN(d / 4, 12), "in")`
+    :code:`Calculation('s_{max}', minimum(d / 4, 12), "in")`
 
 Putting this together with some headings, comparison text, and descriptions, we will have:
 
@@ -165,7 +165,7 @@ Complete Code
     .. code-block:: python
         :linenos:
 
-        from templates.encomp_utils import *
+        from efficalc import *
 
         def calculation():
 
@@ -176,15 +176,15 @@ Complete Code
             Vs = Input("V_s", 50000, "lbs", "Shear capacity of reinforcement steel")
 
             Heading("Calculations", numbered=False)
-            Vs_lim = Calculation('V_{s-lim}', 4 * SQRT(fc) * bw * d, "lbs", 'Limiting shear reinforcement steel capacity', reference="ACI 318-14 Table 9.7.6.2.2")
+            Vs_lim = Calculation('V_{s-lim}', 4 * sqrt(fc) * bw * d, "lbs", 'Limiting shear reinforcement steel capacity', reference="ACI 318-14 Table 9.7.6.2.2")
 
             if Vs.get_value() <= Vs_lim.get_value():
-                ComparisonForced(Vs, "<=", Vs_lim)
-                Calculation('s_{max}', MIN(d / 2, 24), "in", "Maximum allowed spacing of shear reinforcement", reference="ACI 318-14 9.7.6.2.2", result_check=True)
+                ComparisonStatement(Vs, "<=", Vs_lim)
+                Calculation('s_{max}', minimum(d / 2, 24), "in", "Maximum allowed spacing of shear reinforcement", reference="ACI 318-14 9.7.6.2.2", result_check=True)
             
             else:
-                ComparisonForced(Vs, ">", Vs_lim)
-                Calculation('s_{max}', MIN(d / 4, 12), "in", "Maximum allowed spacing of shear reinforcement", reference="ACI 318-14 9.7.6.2.2", result_check=True)
+                ComparisonStatement(Vs, ">", Vs_lim)
+                Calculation('s_{max}', minimum(d / 4, 12), "in", "Maximum allowed spacing of shear reinforcement", reference="ACI 318-14 9.7.6.2.2", result_check=True)
 
 
 Calculation Report
@@ -241,7 +241,7 @@ Complete Code
     .. code-block:: python
         :linenos:
 
-        from templates.encomp_utils import *
+        from efficalc import *
 
 
         def calculation():

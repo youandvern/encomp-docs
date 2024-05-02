@@ -3,5 +3,4 @@
 Calculation Object Details
 ==========================
 
-.. automodule:: base_definitions
-   :members:
+For the efficalc object documentation, view https://youandvern.github.io/efficalc/base_classes.html

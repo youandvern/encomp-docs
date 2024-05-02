@@ -82,6 +82,9 @@ Design Portal:
 ComparisonForced
 ~~~~~~~~~~~~~~~~
 
+..warning::
+    This has been renamed to ComparisonStatement. The api is largely the same, but for details see https://youandvern.github.io/efficalc/base_classes.html#efficalc.ComparisonStatement
+
 Code Example:
 
 .. image:: /_static/examples/comparison_forced_code.png
@@ -187,6 +190,10 @@ Design Portal: Not Displayed
 
 Full Example
 ------------
+
+..warning::
+    Some aspects of this example may be using deprecated class and function names. For up-to-date examples, 
+    view the efficalc library examples: https://github.com/youandvern/efficalc/tree/main/examples
 
 Code
 ~~~~

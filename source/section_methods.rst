@@ -3,5 +3,4 @@
 Section Methods
 ===============
 
-.. automodule:: section_helpers
-   :members:
+For the efficalc sections documentation, view https://youandvern.github.io/efficalc/section_properties.html
