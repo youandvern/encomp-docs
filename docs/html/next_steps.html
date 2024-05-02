@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next Steps: Superpowered Features &mdash; Efficalc 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example Calculation" href="example_calc.html" />
+    <link rel="prev" title="Getting Started - An introductory walk through" href="get_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Efficalc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started - An introductory walk through</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Next Steps: Superpowered Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-efficalc-provided-section-properties">Using efficalc provided section properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step">Step-By-Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-code">Complete Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculation-report">Calculation Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#design-portal">Design Portal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-if-else-statements-for-conditional-calculations">Using if/else statements for conditional calculations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Step-By-Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Complete Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Calculation Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Design Portal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#design-checks-using-comparison">Design checks using <code class="code docutils literal notranslate"><span class="pre">Comparison</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Step-By-Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Complete Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Calculation Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Design Portal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example_calc.html">Example Calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Calculation Objects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Object Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Calculation Object Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Methods and Constants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes on Using Efficalc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Efficalc</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="steel_sections.html">Steel Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aluminum_sections.html">Aluminum Sections</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Efficalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Next Steps: Superpowered Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/next_steps.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="next-steps-superpowered-features">
+<span id="next-steps"></span><h1>Next Steps: Superpowered Features<a class="headerlink" href="#next-steps-superpowered-features" title="Permalink to this heading"></a></h1>
+<p>These are some of efficalc’s features that will take your calculations to the next level.</p>
+<p>These short examples will take you through some of some of efficalc’s features that will take your calculations
+to the next level. If this is your first time on the site, take a look at <a class="reference internal" href="get_started.html#start"><span class="std std-ref">Getting Started - An introductory walk through</span></a> for the basics of creating
+efficalc templates.</p>
+<dl class="simple">
+<dt>These example will break down</dt><dd><ul class="simple">
+<li><p>Efficalc provided section properties</p></li>
+<li><p>Conditional logic with if/else statements</p></li>
+<li><p>Design checks using <code class="code docutils literal notranslate"><span class="pre">Comparison</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="using-efficalc-provided-section-properties">
+<h2>Using efficalc provided section properties<a class="headerlink" href="#using-efficalc-provided-section-properties" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example will be using the section properties provided in the open-source efficalc library.
+For more information about the types of sections available, check out <a class="reference external" href="https://youandvern.github.io/efficalc/section_properties.html">https://youandvern.github.io/efficalc/section_properties.html</a></p>
+</div>
+<p>This example calculation will be a simple wide flange beam design for someone trying to find the optimal section
+size for their beam. By using the provided section properties, we can easily select different sections we want to
+try in the design portal:</p>
+<img alt="Design portal results with large triangle" class="align-center" src="_images/section_select.png" />
+<div class="section" id="step-by-step">
+<h3>Step-By-Step<a class="headerlink" href="#step-by-step" title="Permalink to this heading"></a></h3>
+<p>There are three simple set up steps for selecting and using sections in a template:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Get the size options</p></li>
+<li><p>Create a selector input</p></li>
+<li><p>Get section properties from the selected option</p></li>
+</ol>
+</div></blockquote>
+<p>We can use the list of available sizes that is imported from <code class="code docutils literal notranslate"><span class="pre">efficalc.sections</span></code>:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">ALL_AISC_WIDE_FLANGE_NAMES</span></code></p>
+</div></blockquote>
+<p>Then we can create a selector input named “section” with our sizes:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">section</span> <span class="pre">=</span> <span class="pre">Input(&quot;section&quot;,</span> <span class="pre">&quot;W18X40&quot;,</span> <span class="pre">input_type=&quot;select&quot;,</span> <span class="pre">select_options=ALL_AISC_WIDE_FLANGE_NAMES)</span></code></p>
+</div></blockquote>
+<p>Finally, to get a specific section property we take two steps:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Get all properties for the selected section:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">section_properties</span> <span class="pre">=</span> <span class="pre">get_aisc_wide_flange(section.get_value())</span></code></p>
+</div></blockquote>
+</li>
+<li><p>Place each required property in a <cite>Calculation</cite> object:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">Calculation(&quot;d&quot;,</span> <span class="pre">section_properties.d,</span> <span class="pre">&quot;in&quot;)</span></code></p>
+<p><code class="code docutils literal notranslate"><span class="pre">Zx</span> <span class="pre">=</span> <span class="pre">Calculation(&quot;Z_x&quot;,</span> <span class="pre">section_properties.Zx,</span> <span class="pre">&quot;in^3&quot;)</span></code></p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p>Now, anytime you choose a section, the right property will be used in the calculations. Whenever we need to reference the
+property, we can use it just like any variable:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">Mp</span> <span class="pre">=</span> <span class="pre">Calculation(&quot;M_p&quot;,</span> <span class="pre">Fy</span> <span class="pre">*</span> <span class="pre">Zx,</span> <span class="pre">&quot;kip-in&quot;)</span></code></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For steel wide flange sections, efficalc has over 350 options to choose from. Instead of providing all options to the selector
+input, you can provide (1) your own list of sizes or (2) a sub-list of all sizes</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">[&quot;W18X40&quot;,</span> <span class="pre">&quot;W18X46&quot;,</span> <span class="pre">&quot;W18X50&quot;]</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">relevant_sizes</span> <span class="pre">=</span> <span class="pre">ALL_AISC_WIDE_FLANGE_NAMES[150:200]</span></code></p></li>
+</ol>
+</div></blockquote>
+</div>
+<p>Putting this together with some headings and descriptions, we will have:</p>
+</div>
+<div class="section" id="complete-code">
+<h3>Complete Code<a class="headerlink" href="#complete-code" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">efficalc.sections</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Inputs&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">section</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;section&quot;</span><span class="p">,</span> <span class="s2">&quot;W18X40&quot;</span><span class="p">,</span> <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="n">select_options</span><span class="o">=</span><span class="n">ALL_AISC_WIDE_FLANGE_NAMES</span><span class="p">[</span><span class="mi">150</span><span class="p">:</span><span class="mi">200</span><span class="p">],</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Steel beam section size&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">Fy</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;F_y&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="s2">&quot;Steel yield strength&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Section Properties&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="n">section_properties</span> <span class="o">=</span> <span class="n">get_aisc_wide_flange</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="linenos">12</span>    <span class="n">d</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="n">Zx</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;Z_x&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">Zx</span><span class="p">,</span> <span class="s2">&quot;in^3&quot;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Calculations&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">Mp</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_p&quot;</span><span class="p">,</span> <span class="n">Fy</span> <span class="o">*</span> <span class="n">Zx</span><span class="p">,</span> <span class="s2">&quot;kip-in&quot;</span><span class="p">,</span> <span class="s2">&quot;Nominal plastic moment strength&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="calculation-report">
+<h3>Calculation Report<a class="headerlink" href="#calculation-report" title="Permalink to this heading"></a></h3>
+<img alt="Calculation report with section size" class="align-center" src="_images/section_report.png" />
+</div>
+<div class="section" id="design-portal">
+<h3>Design Portal<a class="headerlink" href="#design-portal" title="Permalink to this heading"></a></h3>
+<img alt="Design portal with section size" class="align-center" src="_images/section_design.png" />
+</div>
+</div>
+<div class="section" id="using-if-else-statements-for-conditional-calculations">
+<h2>Using if/else statements for conditional calculations<a class="headerlink" href="#using-if-else-statements-for-conditional-calculations" title="Permalink to this heading"></a></h2>
+<p>Often in codified calculations, some design equations will only be applicable under specific conditions. This is an ideal
+scenario for using conditional logic and if/else statements. Efficalc is designed to support conditional rendering of
+calculations in your calculation reports or design interface.</p>
+<p>For example, ACI 318-14 section 9.7.6.2.2 has different requirements for the maximum spacing of shear reinforcement depending on
+the proportion of steel reinforcement strength (V<sub>s</sub>) vs limiting stel reinforcement strength based on concrete section
+strength (V<sub>s-lim</sub>):</p>
+<blockquote>
+<div><p>if V<sub>s</sub> <span class="math notranslate nohighlight">\(\leq\)</span> V<sub>s-lim</sub> then use the lesser of d/2 or 24 inches</p>
+<p>otherwise use the lesser of d/4 or 12 inches</p>
+</div></blockquote>
+<img alt="ACI 318-14 Section 9.7.6.22" class="align-center" src="_images/condition_code.png" />
+<div class="section" id="id1">
+<h3>Step-By-Step<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p>Conditional logic in efficalc uses native python syntax. Calculations in conditional blocks are only rendered in the
+design portal and calculation reports when they are in the executed branch. In the reinforcement steel example above,
+we want to display the constant limit as 24 inches OR 12 inches; not both.</p>
+<p>First we calculate V<sub>s-lim</sub> according to table 9.7.6.2.2</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">Vs_lim</span> <span class="pre">=</span> <span class="pre">Calculation('V_{s-lim}',</span> <span class="pre">4</span> <span class="pre">*</span> <span class="pre">sqrt(fc)</span> <span class="pre">*</span> <span class="pre">bw</span> <span class="pre">*</span> <span class="pre">d,</span> <span class="pre">&quot;lbs&quot;)</span></code></p>
+</div></blockquote>
+<p>Then we can handle the conditional check. To compare variables (Input, Calculation, etc.) in a python if statement, we can get the
+value using the <code class="code docutils literal notranslate"><span class="pre">.get_value()</span></code> method. This gets the value of the variable in a number that can also be compared with plain
+numbers (i.e. 2, 0.34, etc.), not just variables.</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">Vs.get_value()</span> <span class="pre">&lt;=</span> <span class="pre">Vs_lim.get_value():</span></code></p>
+</div></blockquote>
+<p>Then if this statement is true, we want the maximum allowed reinforcement spacing to be the lesser of d/2 and 24:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">Calculation('s_{max}',</span> <span class="pre">minimum(d</span> <span class="pre">/</span> <span class="pre">2,</span> <span class="pre">24),</span> <span class="pre">&quot;in&quot;)</span></code></p>
+</div></blockquote>
+<p>To handle the case where the above check is not true and we should use the lesser of d/4 and 12, we can add an else block with:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">Calculation('s_{max}',</span> <span class="pre">minimum(d</span> <span class="pre">/</span> <span class="pre">4,</span> <span class="pre">12),</span> <span class="pre">&quot;in&quot;)</span></code></p>
+</div></blockquote>
+<p>Putting this together with some headings, comparison text, and descriptions, we will have:</p>
+</div>
+<div class="section" id="id2">
+<h3>Complete Code<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Inputs&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="n">bw</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;b_w&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;Effective section width&#39;</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">d</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;Depth to reinforcement steel centroid&#39;</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">fc</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;f&#39;_c&quot;</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;psi&#39;</span><span class="p">,</span> <span class="s1">&#39;Compressive strength of concrete&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">Vs</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;V_s&quot;</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;lbs&quot;</span><span class="p">,</span> <span class="s2">&quot;Shear capacity of reinforcement steel&quot;</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Calculations&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">Vs_lim</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;V_{s-lim}&#39;</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span> <span class="o">*</span> <span class="n">bw</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="s2">&quot;lbs&quot;</span><span class="p">,</span> <span class="s1">&#39;Limiting shear reinforcement steel capacity&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;ACI 318-14 Table 9.7.6.2.2&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="k">if</span> <span class="n">Vs</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">Vs_lim</span><span class="o">.</span><span class="n">get_value</span><span class="p">():</span>
+<span class="linenos">15</span>        <span class="n">ComparisonStatement</span><span class="p">(</span><span class="n">Vs</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">Vs_lim</span><span class="p">)</span>
+<span class="linenos">16</span>        <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;s_</span><span class="si">{max}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">minimum</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Maximum allowed spacing of shear reinforcement&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;ACI 318-14 9.7.6.2.2&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">19</span>        <span class="n">ComparisonStatement</span><span class="p">(</span><span class="n">Vs</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">Vs_lim</span><span class="p">)</span>
+<span class="linenos">20</span>        <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;s_</span><span class="si">{max}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">minimum</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Maximum allowed spacing of shear reinforcement&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;ACI 318-14 9.7.6.2.2&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h3>Calculation Report<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>Full report with the first conditional check true:</p>
+<img alt="Calculation report with conditional logic first block executed" class="align-center" src="_images/condition_report1.png" />
+<p>Calculations only with the first conditional check false (b reduced to 8 in):</p>
+<img alt="Calculation report with conditional logic second block executed" class="align-center" src="_images/condition_report2.png" />
+</div>
+<div class="section" id="id4">
+<h3>Design Portal<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<img alt="Design portal with a single conditional result displayed" class="align-center" src="_images/condition_design.png" />
+</div>
+</div>
+<div class="section" id="design-checks-using-comparison">
+<h2>Design checks using <code class="code docutils literal notranslate"><span class="pre">Comparison</span></code><a class="headerlink" href="#design-checks-using-comparison" title="Permalink to this heading"></a></h2>
+<p>Whether it’s a final result or mid-calculation, you may want to perform a design check to compare a calculation
+result against a target value. For example, you may want a clear display that let’s you know the capacity is less
+than the demand.</p>
+<p>Efficalc’s <code class="code docutils literal notranslate"><span class="pre">Comparison</span></code> object is designed to make design checks easy and useful. The design portal will highlight
+your checks green or red depending on whether they are passing or failing with the current inputs. The calculation report
+will also clearly display the check with variables, substituted values, and a customizable description.</p>
+<div class="section" id="id5">
+<h3>Step-By-Step<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p>The complete list of options for a <code class="code docutils literal notranslate"><span class="pre">Comparison</span></code> object are given in <a class="reference internal" href="calc_objects.html#objects"><span class="std std-ref">Calculation Object Details</span></a> and <a class="reference internal" href="examples.html#examples"><span class="std std-ref">Calculation Object Examples</span></a>. This example
+will hightlight on basic usage with custom messages.</p>
+<p>For a design check to confirm that the design moment strength is greater than the moment demand, we can add the following
+line after our calculation:</p>
+<blockquote>
+<div><p><code class="code docutils literal notranslate"><span class="pre">Comparison(Mu,</span> <span class="pre">&quot;&lt;=&quot;,</span> <span class="pre">PMn,</span> <span class="pre">true_message=&quot;Pass&quot;,</span> <span class="pre">false_message=&quot;Fail&quot;)</span></code></p>
+</div></blockquote>
+<p>This will show a comparison of the variables Mu and PMn and the resulting true_message or false_message depending on the result.</p>
+</div>
+<div class="section" id="id6">
+<h3>Complete Code<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Inputs&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">Zx</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;Z_x&quot;</span><span class="p">,</span> <span class="mf">82.3</span><span class="p">,</span> <span class="s2">&quot;in^3&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic section modulus of the beam&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">Fy</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;F_y&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="s2">&quot;Steel yield strength&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">Mu</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;M_u&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Beam moment demand&quot;</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">P</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;\phi&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Flexural resistance factor&quot;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Calculations&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="n">Mp</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_p&quot;</span><span class="p">,</span> <span class="n">Fy</span> <span class="o">*</span> <span class="n">Zx</span> <span class="o">/</span> <span class="n">ft_to_in</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-1&quot;</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="n">PMn</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;\phi M_n&quot;</span><span class="p">,</span> <span class="n">P</span> <span class="o">*</span> <span class="n">Mp</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Design flexural strength of the section&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">Comparison</span><span class="p">(</span><span class="n">Mu</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">PMn</span><span class="p">,</span> <span class="n">true_message</span><span class="o">=</span><span class="s2">&quot;Pass&quot;</span><span class="p">,</span> <span class="n">false_message</span><span class="o">=</span><span class="s2">&quot;Fail&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h3>Calculation Report<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<img alt="Calculation report with a comparison" class="align-center" src="_images/comparison_report1.png" />
+</div>
+<div class="section" id="id8">
+<h3>Design Portal<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<img alt="Design portal with a passing comparison" class="align-center" src="_images/comparison_design1.png" />
+<img alt="Design portal with a failing comparison" class="align-center" src="_images/comparison_design2.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="get_started.html" class="btn btn-neutral float-left" title="Getting Started - An introductory walk through" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_calc.html" class="btn btn-neutral float-right" title="Example Calculation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

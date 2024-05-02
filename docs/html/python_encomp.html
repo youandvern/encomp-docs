@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Python with Efficalc &mdash; Efficalc 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Steel Sections" href="steel_sections.html" />
+    <link rel="prev" title="Styling Variable Names and Units" href="styling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Efficalc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started - An introductory walk through</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next Steps: Superpowered Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_calc.html">Example Calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Calculation Objects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Object Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Calculation Object Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Methods and Constants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes on Using Efficalc</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Python with Efficalc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#indentation">Indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#positional-vs-keyword-arguments">Positional vs. Keyword Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#positional">Positional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyword">Keyword</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixing-positional-and-keyword">Mixing Positional and Keyword</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#python-s-math-module">Python’s Math Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-other-modules">Importing Other Modules</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="steel_sections.html">Steel Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aluminum_sections.html">Aluminum Sections</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Efficalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Python with Efficalc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/python_encomp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="using-python-with-efficalc">
+<span id="python"></span><h1>Using Python with Efficalc<a class="headerlink" href="#using-python-with-efficalc" title="Permalink to this heading"></a></h1>
+<div class="section" id="indentation">
+<h2>Indentation<a class="headerlink" href="#indentation" title="Permalink to this heading"></a></h2>
+<p>Python is a syntactically light language, but the indentations are very important. If you have never used
+Python before here’s a helpful resource for understanding indentation: <a class="reference external" href="https://www.w3schools.com/python/gloss_python_indentation.asp">https://www.w3schools.com/python/gloss_python_indentation.asp</a></p>
+</div>
+<div class="section" id="positional-vs-keyword-arguments">
+<h2>Positional vs. Keyword Arguments<a class="headerlink" href="#positional-vs-keyword-arguments" title="Permalink to this heading"></a></h2>
+<p>Efficalc’s calculation objects can be created using either positional or keyword arguments. There are some cases
+where using positional arguments might make more sense and others where keyword arguments will be very useful.</p>
+<div class="section" id="positional">
+<h3>Positional<a class="headerlink" href="#positional" title="Permalink to this heading"></a></h3>
+<p>Positional arguments refer to creating a class or calling a function without using the parameter keywords but
+relying on the fact that the order of your parameters matches the order of the class/function parameters.</p>
+<p>The following examples show positional arguments in action. Note that all of the parameters used must be in order,
+but not all of the class or function parameters must be used. The <code class="code docutils literal notranslate"><span class="pre">Heading</span></code> object has 4 parameters
+(text, head_level, numbered, reference), but we have only used 2 of them. The default values will be used for
+the remaining parameters.</p>
+<blockquote>
+<div><p>Class creation: <code class="code docutils literal notranslate"><span class="pre">Heading(&quot;This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">text&quot;,</span> <span class="pre">2)</span></code></p>
+<p>Function call: <code class="code docutils literal notranslate"><span class="pre">section_properties</span> <span class="pre">=</span> <span class="pre">get_steel_section_properties(&quot;WF&quot;,</span> <span class="pre">&quot;W14X109&quot;)</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="keyword">
+<h3>Keyword<a class="headerlink" href="#keyword" title="Permalink to this heading"></a></h3>
+<p>Keyword arguments do not have to match the order of the class/function parameters, but instead rely on explicitly
+defining which parameter is being added to. Required parameters must still be defined.</p>
+<p>The following examples show keyword arguments in action. Note that the parameters used do not have to be in order
+and that we can access the last parameter of the <code class="code docutils literal notranslate"><span class="pre">Heading</span></code> class (reference) without defining every one before
+it. The <code class="code docutils literal notranslate"><span class="pre">Heading</span></code> object has 4 parameters (text, head_level, numbered, reference), but we have only used the
+first and last. The default values will be used for the remaining parameters.</p>
+<blockquote>
+<div><p>Class creation: <code class="code docutils literal notranslate"><span class="pre">Heading(text=&quot;This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">text&quot;,</span> <span class="pre">reference=&quot;REF&quot;)</span></code></p>
+<p>Function call: <code class="code docutils literal notranslate"><span class="pre">section_properties</span> <span class="pre">=</span> <span class="pre">get_steel_section_properties(section_type=&quot;WF&quot;,</span> <span class="pre">section_size=&quot;W14X109&quot;)</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="mixing-positional-and-keyword">
+<h3>Mixing Positional and Keyword<a class="headerlink" href="#mixing-positional-and-keyword" title="Permalink to this heading"></a></h3>
+<p>Positional and keyword arguments can be mixed as needed as long as your positional arguments are first. This can
+be very useful to take advantages of both ways to define arguments. The positional arguments will help you avoid
+typing out each argument name, but the keyword arguments can help access a other couple arguments you need out of
+a long list of optional arguments.</p>
+<p>The following examples show mixed positional and keyword arguments in action.</p>
+<blockquote>
+<div><p>Class creation: <code class="code docutils literal notranslate"><span class="pre">Heading(&quot;This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">text&quot;,</span> <span class="pre">reference=&quot;REF&quot;)</span></code></p>
+<p>Function call: <code class="code docutils literal notranslate"><span class="pre">section_properties</span> <span class="pre">=</span> <span class="pre">get_steel_section_properties(&quot;WF&quot;,</span> <span class="pre">section_size=&quot;W14X109&quot;)</span></code></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="python-s-math-module">
+<h2>Python’s Math Module<a class="headerlink" href="#python-s-math-module" title="Permalink to this heading"></a></h2>
+<p>Some calculations may benefit from funtionality defined in Python’s math module, so this has already been imported
+within encomp_utils import that should already be at the top of every template file. When building your template, you
+can access the math module by calling <code class="code docutils literal notranslate"><span class="pre">math.&lt;method</span> <span class="pre">name&gt;</span></code>. For example:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">10.85</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="importing-other-modules">
+<h2>Importing Other Modules<a class="headerlink" href="#importing-other-modules" title="Permalink to this heading"></a></h2>
+<p>For security of the application, we have restricted users from importing other modules for their calculation templates.
+If you need to use a module that is not provided, please contact us and let us know what module you need and why it
+would be useful. We’re happy to add other safe modules to the standard imports.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="styling.html" class="btn btn-neutral float-left" title="Styling Variable Names and Units" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="steel_sections.html" class="btn btn-neutral float-right" title="Steel Sections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Calculation &mdash; Efficalc 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Calculation Object Details" href="calc_objects.html" />
+    <link rel="prev" title="Next Steps: Superpowered Features" href="next_steps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Efficalc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started - An introductory walk through</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next Steps: Superpowered Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-portal">Design Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculation-report">Calculation Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-code">Complete Code</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Calculation Objects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Object Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Calculation Object Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Methods and Constants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes on Using Efficalc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Efficalc</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="steel_sections.html">Steel Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aluminum_sections.html">Aluminum Sections</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Efficalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Example Calculation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/example_calc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="example-calculation">
+<span id="example-calc"></span><h1>Example Calculation<a class="headerlink" href="#example-calculation" title="Permalink to this heading"></a></h1>
+<p>This full example will display some of the more powerful features of efficalc templates that are displayed in <a class="reference internal" href="next_steps.html#next-steps"><span class="std std-ref">Next Steps: Superpowered Features</span></a>.</p>
+<p>To explore the different elements we use here, you can copy and paste this code into your own template and modify it as you like.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some aspects of this example may be using deprecated class and function names. For up-to-date examples,
+view the efficalc library examples: <a class="reference external" href="https://github.com/youandvern/efficalc/tree/main/examples">https://github.com/youandvern/efficalc/tree/main/examples</a></p>
+</div>
+<div class="section" id="design-portal">
+<h2>Design Portal<a class="headerlink" href="#design-portal" title="Permalink to this heading"></a></h2>
+<img alt="Design portal for steel beam example" class="align-center" src="_images/example_design.png" />
+</div>
+<div class="section" id="calculation-report">
+<h2>Calculation Report<a class="headerlink" href="#calculation-report" title="Permalink to this heading"></a></h2>
+<p>Here is the complete <a href="_static/simple_steel_beam_report.pdf" target="_blank">Calculation Report</a> for this example.</p>
+<p><iframe src="_static/simple_steel_beam_report.pdf" width="100%" height="600px"></iframe></p>
+</div>
+<div class="section" id="complete-code">
+<h2>Complete Code<a class="headerlink" href="#complete-code" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">all_wf_sections</span> <span class="o">=</span> <span class="n">get_all_steel_section_sizes</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">)</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+<span class="linenos"> 6</span>    <span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Steel Beam Moment Strength&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="n">TextBlock</span><span class="p">(</span><span class="s2">&quot;Flexural strength of a steel wide-flange beam section.&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Assumptions&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">11</span>    <span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;AISC 14th Edition controls design&quot;</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;Beam web is unstiffened&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Inputs&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="n">Mu</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;M_u&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Beam ultimate moment demand&quot;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">Lbu</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;L_b&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Beam unbraced length&quot;</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="n">section</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;section&quot;</span><span class="p">,</span> <span class="s2">&quot;W18X40&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Beam section size&quot;</span><span class="p">,</span>
+<span class="linenos">20</span>                    <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="n">select_options</span><span class="o">=</span><span class="n">all_wf_sections</span><span class="p">[</span><span class="mi">150</span><span class="p">:</span><span class="mi">200</span><span class="p">])</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span>    <span class="n">Fy</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;F_y&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="s2">&quot;Steel yield strength&quot;</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">Fu</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;F_u&quot;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="s2">&quot;Steel ultimate strength&quot;</span><span class="p">)</span>
+<span class="linenos">24</span>    <span class="n">Es</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">29000</span><span class="p">,</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="s2">&quot;Modulus of elasticity&quot;</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>    <span class="n">Cb</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;C_b&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Lateral-torsional buckling modification factor&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC F1(3)&quot;</span><span class="p">)</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Section Properties&quot;</span><span class="p">,</span> <span class="n">numbered</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">section_properties</span> <span class="o">=</span> <span class="n">get_steel_section_properties</span><span class="p">(</span><span class="s2">&quot;WF&quot;</span><span class="p">,</span> <span class="n">section</span><span class="o">.</span><span class="n">get_value</span><span class="p">())</span>
+<span class="linenos">30</span>    <span class="n">b</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bf&quot;</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">31</span>    <span class="n">d</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">32</span>    <span class="n">Sx</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;S_x&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Sx&quot;</span><span class="p">),</span> <span class="s2">&quot;in^3&quot;</span><span class="p">)</span>
+<span class="linenos">33</span>    <span class="n">Zx</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;Z_x&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Zx&quot;</span><span class="p">),</span> <span class="s2">&quot;in^3&quot;</span><span class="p">)</span>
+<span class="linenos">34</span>    <span class="n">ry</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;r_</span><span class="si">{y}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ry&quot;</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">rts</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;r_</span><span class="si">{ts}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rts&quot;</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">J</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">),</span> <span class="s2">&quot;in^4&quot;</span><span class="p">)</span>
+<span class="linenos">37</span>    <span class="n">ho</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;h_o&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ho&quot;</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span>
+<span class="linenos">38</span>    <span class="n">bfl2tf</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;b_f/2t_f&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bfl2tf&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="linenos">39</span>    <span class="n">hltw</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;h/t_w&quot;</span><span class="p">,</span> <span class="n">section_properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hltw&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Beam Flexural Capacity&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">43</span>    <span class="n">Pb</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;\phi_</span><span class="si">{b}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Flexural resistance factor&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC F1(1)&quot;</span><span class="p">)</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Section Compactness&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">46</span>    <span class="n">ypf</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;\lambda_</span><span class="si">{pf}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mf">0.38</span> <span class="o">*</span> <span class="n">SQRT</span><span class="p">(</span><span class="n">E</span> <span class="o">/</span> <span class="n">Fy</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Table B4.1b(10)&quot;</span><span class="p">)</span>
+<span class="linenos">47</span>    <span class="n">Comparison</span><span class="p">(</span><span class="n">bfl2tf</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">ypf</span><span class="p">,</span> <span class="n">true_message</span><span class="o">=</span><span class="s2">&quot;CompactFlange&quot;</span><span class="p">,</span> <span class="n">false_message</span><span class="o">=</span><span class="s2">&quot;ERROR:NotCompactFlange&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">48</span>
+<span class="linenos">49</span>    <span class="n">ypw</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;\lambda_</span><span class="si">{pw}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mf">3.76</span> <span class="o">*</span> <span class="n">SQRT</span><span class="p">(</span><span class="n">E</span> <span class="o">/</span> <span class="n">Fy</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Table B4.1b(15)&quot;</span><span class="p">)</span>
+<span class="linenos">50</span>    <span class="n">Comparison</span><span class="p">(</span><span class="n">hltw</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">ypw</span><span class="p">,</span> <span class="n">true_message</span><span class="o">=</span><span class="s2">&quot;CompactWeb&quot;</span><span class="p">,</span> <span class="n">false_message</span><span class="o">=</span><span class="s2">&quot;ERROR:NotCompactWeb&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Plastic Moment Strength&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">53</span>    <span class="n">Mp</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{p}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Fy</span> <span class="o">*</span> <span class="n">Zx</span> <span class="o">/</span> <span class="n">ft_to_in</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Nominal plastic moment strength&quot;</span><span class="p">,</span>
+<span class="linenos">54</span>                    <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-1&quot;</span><span class="p">)</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Yielding Strength&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">57</span>    <span class="n">Mny</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{ny}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Mp</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-1&quot;</span><span class="p">)</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Lateral-Torsional Buckling&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">60</span>    <span class="n">Lp</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;L_</span><span class="si">{p}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mf">1.76</span> <span class="o">*</span> <span class="n">ry</span> <span class="o">*</span> <span class="n">SQRT</span><span class="p">(</span><span class="n">E</span> <span class="o">/</span> <span class="n">Fy</span><span class="p">)</span> <span class="o">/</span> <span class="n">ft_to_in</span><span class="p">,</span> <span class="s2">&quot;ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-5&quot;</span><span class="p">)</span>
+<span class="linenos">61</span>    <span class="n">cc</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-8a&quot;</span><span class="p">)</span>
+<span class="linenos">62</span>    <span class="n">Lr</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;L_</span><span class="si">{r}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mf">1.95</span> <span class="o">*</span> <span class="n">rts</span> <span class="o">/</span> <span class="n">ft_to_in</span> <span class="o">*</span> <span class="n">Es</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="n">Fy</span><span class="p">)</span> <span class="o">*</span> <span class="n">SQRT</span><span class="p">(</span>
+<span class="linenos">63</span>        <span class="n">J</span> <span class="o">*</span> <span class="n">cc</span> <span class="o">/</span> <span class="p">(</span><span class="n">Sx</span> <span class="o">*</span> <span class="n">ho</span><span class="p">)</span> <span class="o">+</span> <span class="n">SQRT</span><span class="p">((</span><span class="n">J</span> <span class="o">*</span> <span class="n">cc</span> <span class="o">/</span> <span class="p">(</span><span class="n">Sx</span> <span class="o">*</span> <span class="n">ho</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">6.76</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="n">Fy</span> <span class="o">/</span> <span class="n">E</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)),</span> <span class="s2">&quot;ft&quot;</span><span class="p">,</span>
+<span class="linenos">64</span>                    <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-6&quot;</span><span class="p">)</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span>    <span class="k">if</span> <span class="n">Lbu</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">Lp</span><span class="o">.</span><span class="n">result</span><span class="p">():</span>
+<span class="linenos">67</span>        <span class="n">ComparisonForced</span><span class="p">(</span><span class="n">Lbu</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">Lp</span><span class="p">)</span>
+<span class="linenos">68</span>        <span class="n">Mnl</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{nltb}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Mp</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;The limit state of lateral-torsional buckling does not apply&quot;</span><span class="p">,</span>
+<span class="linenos">69</span>                        <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC F2.2(a)&quot;</span><span class="p">)</span>
+<span class="linenos">70</span>    <span class="k">elif</span> <span class="n">Lbu</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">Lr</span><span class="o">.</span><span class="n">result</span><span class="p">():</span>
+<span class="linenos">71</span>        <span class="n">ComparisonForced</span><span class="p">(</span><span class="n">Lbu</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">Lr</span><span class="p">)</span>
+<span class="linenos">72</span>        <span class="n">Fcr</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;F_</span><span class="si">{cr}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Cb</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">Es</span> <span class="o">/</span> <span class="p">(</span><span class="n">Lbu</span> <span class="o">*</span> <span class="n">ft_to_in</span> <span class="o">/</span> <span class="n">rts</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">SQRT</span><span class="p">(</span>
+<span class="linenos">73</span>            <span class="mi">1</span> <span class="o">+</span> <span class="mf">0.078</span> <span class="o">*</span> <span class="n">J</span> <span class="o">*</span> <span class="n">cc</span> <span class="o">/</span> <span class="p">(</span><span class="n">Sx</span> <span class="o">*</span> <span class="n">ho</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Lbu</span> <span class="o">*</span> <span class="n">ft_to_in</span> <span class="o">/</span> <span class="n">rts</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;ksi&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-4&quot;</span><span class="p">)</span>
+<span class="linenos">74</span>        <span class="n">Mncr</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{ncr}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Fcr</span> <span class="o">*</span> <span class="n">Sx</span> <span class="o">/</span> <span class="n">ft_to_in</span><span class="p">,</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC F2.2(c)&quot;</span><span class="p">)</span>
+<span class="linenos">75</span>        <span class="n">Mnl</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{nltb}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">MIN</span><span class="p">(</span><span class="n">Mncr</span><span class="p">,</span> <span class="n">Mp</span><span class="p">),</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-3&quot;</span><span class="p">)</span>
+<span class="linenos">76</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">77</span>        <span class="n">ComparisonForced</span><span class="p">(</span><span class="n">Lp</span><span class="p">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="n">Lbu</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">Lr</span><span class="p">)</span>
+<span class="linenos">78</span>        <span class="n">Mncr</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{ncr}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="linenos">79</span>                        <span class="n">Cb</span> <span class="o">*</span> <span class="n">BRACKETS</span><span class="p">(</span><span class="n">Mp</span> <span class="o">-</span> <span class="n">BRACKETS</span><span class="p">(</span><span class="n">Mp</span> <span class="o">-</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="n">Fy</span> <span class="o">*</span> <span class="n">Sx</span> <span class="o">/</span> <span class="n">ft_to_in</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Lbu</span> <span class="o">-</span> <span class="n">Lp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">Lr</span> <span class="o">-</span> <span class="n">Lp</span><span class="p">)),</span>
+<span class="linenos">80</span>                        <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC F2.2(b)&quot;</span><span class="p">)</span>
+<span class="linenos">81</span>        <span class="n">Mnl</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;M_</span><span class="si">{nltb}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">MIN</span><span class="p">(</span><span class="n">Mncr</span><span class="p">,</span> <span class="n">Mp</span><span class="p">),</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;AISC Eq. F2-2&quot;</span><span class="p">)</span>
+<span class="linenos">82</span>
+<span class="linenos">83</span>    <span class="n">Heading</span><span class="p">(</span><span class="s2">&quot;Controlling Strength&quot;</span><span class="p">,</span> <span class="n">head_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">84</span>    <span class="n">PMn</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;\phi M_n&quot;</span><span class="p">,</span> <span class="n">Pb</span> <span class="o">*</span> <span class="n">MIN</span><span class="p">(</span><span class="n">Mny</span><span class="p">,</span> <span class="n">Mnl</span><span class="p">),</span> <span class="s2">&quot;kip-ft&quot;</span><span class="p">,</span> <span class="s2">&quot;Design flexural strength of the section&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">85</span>    <span class="n">Comparison</span><span class="p">(</span><span class="n">Mu</span><span class="p">,</span> <span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span> <span class="n">PMn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="next_steps.html" class="btn btn-neutral float-left" title="Next Steps: Superpowered Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calc_objects.html" class="btn btn-neutral float-right" title="Calculation Object Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

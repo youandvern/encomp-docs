@@ -7,7 +7,7 @@ This full example will display some of the more powerful features of efficalc te
 
 To explore the different elements we use here, you can copy and paste this code into your own template and modify it as you like.
 
-..warning::
+.. warning::
     Some aspects of this example may be using deprecated class and function names. For up-to-date examples, 
     view the efficalc library examples: https://github.com/youandvern/efficalc/tree/main/examples
 

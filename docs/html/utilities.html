@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculation Utilities &mdash; Efficalc 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Unit Conversions and Constants" href="units_constants.html" />
+    <link rel="prev" title="Section Methods" href="section_methods.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Efficalc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started - An introductory walk through</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next Steps: Superpowered Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_calc.html">Example Calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Calculation Objects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Object Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Calculation Object Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Methods and Constants</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculation Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.ABRACKETS"><code class="docutils literal notranslate"><span class="pre">ABRACKETS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.ABS"><code class="docutils literal notranslate"><span class="pre">ABS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.ADD"><code class="docutils literal notranslate"><span class="pre">ADD()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.BRACKETS"><code class="docutils literal notranslate"><span class="pre">BRACKETS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.CBRACKETS"><code class="docutils literal notranslate"><span class="pre">CBRACKETS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.COS"><code class="docutils literal notranslate"><span class="pre">COS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.COSH"><code class="docutils literal notranslate"><span class="pre">COSH()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.DIV"><code class="docutils literal notranslate"><span class="pre">DIV()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.DIV2"><code class="docutils literal notranslate"><span class="pre">DIV2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.EXP"><code class="docutils literal notranslate"><span class="pre">EXP()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.LN"><code class="docutils literal notranslate"><span class="pre">LN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.LOG10"><code class="docutils literal notranslate"><span class="pre">LOG10()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.MAX"><code class="docutils literal notranslate"><span class="pre">MAX()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.MIN"><code class="docutils literal notranslate"><span class="pre">MIN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.MINUS"><code class="docutils literal notranslate"><span class="pre">MINUS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.MUL"><code class="docutils literal notranslate"><span class="pre">MUL()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.NEG"><code class="docutils literal notranslate"><span class="pre">NEG()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.PLUS"><code class="docutils literal notranslate"><span class="pre">PLUS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.POW"><code class="docutils literal notranslate"><span class="pre">POW()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.RBRACKETS"><code class="docutils literal notranslate"><span class="pre">RBRACKETS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.ROOT"><code class="docutils literal notranslate"><span class="pre">ROOT()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SBRACKETS"><code class="docutils literal notranslate"><span class="pre">SBRACKETS()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SIN"><code class="docutils literal notranslate"><span class="pre">SIN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SINH"><code class="docutils literal notranslate"><span class="pre">SINH()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SQRT"><code class="docutils literal notranslate"><span class="pre">SQRT()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SUB"><code class="docutils literal notranslate"><span class="pre">SUB()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.SUM"><code class="docutils literal notranslate"><span class="pre">SUM()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.TAN"><code class="docutils literal notranslate"><span class="pre">TAN()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.TANH"><code class="docutils literal notranslate"><span class="pre">TANH()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.TIMES"><code class="docutils literal notranslate"><span class="pre">TIMES()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latexexpr_docs.Variable"><code class="docutils literal notranslate"><span class="pre">Variable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes on Using Efficalc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Efficalc</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="steel_sections.html">Steel Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aluminum_sections.html">Aluminum Sections</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Efficalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calculation Utilities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utilities.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="calculation-utilities">
+<span id="utilities"></span><h1>Calculation Utilities<a class="headerlink" href="#calculation-utilities" title="Permalink to this heading"></a></h1>
+<p>The following are helpful utilites for building calculations using the <a class="reference external" href="https://github.com/youandvern/latexexpr_encomp">LatexExpr</a> library.</p>
+<span class="target" id="module-latexexpr_docs"></span><dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.ABRACKETS">
+<span class="sig-name descname"><span class="pre">ABRACKETS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.ABRACKETS" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps any calculation expression or variable in angle brackets in the calculation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for angle brackets ( &lt;arg&gt; )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">CBRACKETS</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = &lt;v + 1&gt; = &lt;2 + 1&gt; = 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.ABS">
+<span class="sig-name descname"><span class="pre">ABS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.ABS" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the absolute value of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 object for absolute value ( |arg0| )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">ABS</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = |v| = | -2 in | = 2in</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.ADD">
+<span class="sig-name descname"><span class="pre">ADD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.ADD" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#latexexpr_docs.SUM" title="latexexpr_docs.SUM"><code class="xref py py-func docutils literal notranslate"><span class="pre">SUM()</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.BRACKETS">
+<span class="sig-name descname"><span class="pre">BRACKETS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.BRACKETS" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#latexexpr_docs.RBRACKETS" title="latexexpr_docs.RBRACKETS"><code class="xref py py-func docutils literal notranslate"><span class="pre">RBRACKETS()</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.CBRACKETS">
+<span class="sig-name descname"><span class="pre">CBRACKETS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.CBRACKETS" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps any calculation expression or variable in curly brackets in the calculation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for curly brackets ( {arg} )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">CBRACKETS</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = {v + 1} = {2 + 1} = 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.COS">
+<span class="sig-name descname"><span class="pre">COS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.COS" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the trigonometric cosine of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for cosine operation ( cos(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">COS</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = cos(pi / 3) = cos(3.142 / 3) = 0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.COSH">
+<span class="sig-name descname"><span class="pre">COSH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.COSH" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the hyperbolic cosine of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for hyperbolic cosine operation ( cosh(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">COSH</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = cosh(pi / 6) = cosh(3.142 / 6) = 1.14</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.DIV">
+<span class="sig-name descname"><span class="pre">DIV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.DIV" title="Permalink to this definition"></a></dt>
+<dd><p>Used for dviding 2 objects in a calculation. Uses LaTeX formatting \frac{…}{…}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 objects for division (arg0 / arg1)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">DIV</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = v / v = 2 in / 2in = 1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.DIV2">
+<span class="sig-name descname"><span class="pre">DIV2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.DIV2" title="Permalink to this definition"></a></dt>
+<dd><p>Used for dviding 2 objects in a calculation. Uses LaTeX formatting in LaTeX marked by …/…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 objects for division (arg0 / arg1)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">DIV2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = v / v = 2 in / 2in = 1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.EXP">
+<span class="sig-name descname"><span class="pre">EXP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.EXP" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the exponent (base of e) value of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for exp ( exp(arg)=e^arg )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">EXP</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = e^v = e^2 = 7.389</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.LN">
+<span class="sig-name descname"><span class="pre">LN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.LN" title="Permalink to this definition"></a></dt>
+<dd><p>Used to calculate the natural logarithm of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for natural logarithm ( ln(arg) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mf">7.389</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">LN</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = ln(v) = ln(7.389) = 2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.LOG10">
+<span class="sig-name descname"><span class="pre">LOG10</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.LOG10" title="Permalink to this definition"></a></dt>
+<dd><p>Used to calculate the logarithm of an object for a base of 10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 object for a 10 based logarithm ( ln(arg) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">LOG10</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = log_10(v) = log_10(10000) = 4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.MAX">
+<span class="sig-name descname"><span class="pre">MAX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.MAX" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the maximum value of 2 or more objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 or more objects for maximum ( max(arg0, arg1, …, argLast) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">MAX</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = max(v1, v2, 1) = max(-2, 5, 1) = 5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.MIN">
+<span class="sig-name descname"><span class="pre">MIN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.MIN" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the minimum value of 2 or more objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 or more objects for minimum ( min(arg0, arg1, …, argLast) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">MIN</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = min(v1, v2, 1) = min(-2, 5, 1) = -2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.MINUS">
+<span class="sig-name descname"><span class="pre">MINUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.MINUS" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#latexexpr_docs.SUB" title="latexexpr_docs.SUB"><code class="xref py py-func docutils literal notranslate"><span class="pre">SUB()</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.MUL">
+<span class="sig-name descname"><span class="pre">MUL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.MUL" title="Permalink to this definition"></a></dt>
+<dd><p>Used for multiplying 2 or more objects in a calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 or more objects for multiplication ( arg0 * arg1 * … * argLast )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">MUL</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="s1">&#39;in^3&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = v * v * v = 2 in * 2 in * 2 in = 8 in^3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.NEG">
+<span class="sig-name descname"><span class="pre">NEG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.NEG" title="Permalink to this definition"></a></dt>
+<dd><p>Used to reverse the sign of (negate) an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 object for negation ( -arg0)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">NEG</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = (- v) = (- 2 in) = -2in</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.PLUS">
+<span class="sig-name descname"><span class="pre">PLUS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.PLUS" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#latexexpr_docs.SUM" title="latexexpr_docs.SUM"><code class="xref py py-func docutils literal notranslate"><span class="pre">SUM()</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.POW">
+<span class="sig-name descname"><span class="pre">POW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.POW" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the exponential power of 2 objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 objects for power ( arg0 ^ arg1 )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">POW</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = v2^v1 = 5^2 = 25</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.RBRACKETS">
+<span class="sig-name descname"><span class="pre">RBRACKETS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.RBRACKETS" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps any calculation expression or variable in round brackets (parantheses) in the calculation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for round brackets ( (arg) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">RBRACKETS</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = (v + 1) = (2 + 1) = 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.ROOT">
+<span class="sig-name descname"><span class="pre">ROOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.ROOT" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the root of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 objects for root value ( arg1^(1/arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">ROOT</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = v2^(1/v1) = 8^(1/3) = 2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SBRACKETS">
+<span class="sig-name descname"><span class="pre">SBRACKETS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SBRACKETS" title="Permalink to this definition"></a></dt>
+<dd><p>Wraps any calculation expression or variable in square brackets in the calculation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for square brackets ( [arg] )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SBRACKETS</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = [v + 1] = [2 + 1] = 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SIN">
+<span class="sig-name descname"><span class="pre">SIN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SIN" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the trigonometric sine of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for sine operation ( sin(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SIN</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = sin(pi / 6) = sin(3.142 / 6) = 0.5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SINH">
+<span class="sig-name descname"><span class="pre">SINH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SINH" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the hyperbolic sine of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for hyperbolicsine operation ( sinh(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SINH</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = sinh(pi / 6) = sinh(3.142 / 6) = 0.5479</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SQRT">
+<span class="sig-name descname"><span class="pre">SQRT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SQRT" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the square root of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 objects for square root ( sqrt(arg) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SQRT</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = sqrt(v) = sqrt(16) = 4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SUB">
+<span class="sig-name descname"><span class="pre">SUB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SUB" title="Permalink to this definition"></a></dt>
+<dd><p>Used for subtracting 2 objects in a calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 objects for subtraction (arg0 - arg1)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SUB</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = v - v = 2 in - 2in = 0 in</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.SUM">
+<span class="sig-name descname"><span class="pre">SUM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.SUM" title="Permalink to this definition"></a></dt>
+<dd><p>Used for summing 2 or more objects in a calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>(</em><em>s</em><em>)</em><em>, </em><em>Input</em><em>(</em><em>s</em><em>)</em><em>, </em><em>Calculation</em><em>(</em><em>s</em><em>)</em>) – 2 or more objects for summation ( arg0 + arg1 + … + argLast)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">SUM</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = v + v + v = 2 in + 2 in + 2in = 6 in</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.TAN">
+<span class="sig-name descname"><span class="pre">TAN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.TAN" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the trigonometric tangent of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 object for tangent operation ( tan(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">TAN</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">4</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = tan(pi / 4) = tan(3.142 / 4) = 1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.TANH">
+<span class="sig-name descname"><span class="pre">TANH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.TANH" title="Permalink to this definition"></a></dt>
+<dd><p>Used to get the hyperbolic tangent of an object (using radians).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="#latexexpr_docs.Variable" title="latexexpr_docs.Variable"><em>Variable</em></a><em>, </em><em>Input</em><em>, </em><em>Calculation</em>) – 1 object for hyperbolic tangent operation ( tanh(arg0) )</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">TANH</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span>
+<span class="go">Calculation report will show --&gt; result = tanh(pi / 6) = tanh(3.142 / 6) = 0.4805</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="latexexpr_docs.TIMES">
+<span class="sig-name descname"><span class="pre">TIMES</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.TIMES" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#latexexpr_docs.MUL" title="latexexpr_docs.MUL"><code class="xref py py-func docutils literal notranslate"><span class="pre">MUL()</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="latexexpr_docs.Variable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#latexexpr_docs.Variable" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing mathematical or physical variable with units. It is similar to an <code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code>, but a
+Variable cannot be changed by a calculation and will only show up on the calculation report when used in a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Calculation</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Comparison</span></code>, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – symbolic name of the variable</p></li>
+<li><p><strong>value</strong> (<em>float</em><em> | </em><em>int</em>) – value of the variable</p></li>
+<li><p><strong>unit</strong> (<em>str</em>) – physical unit of the variable</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+<span class="go">Calculation report will show --&gt; result = var + var = 2 in + 2 in = 4 in</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="section_methods.html" class="btn btn-neutral float-left" title="Section Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="units_constants.html" class="btn btn-neutral float-right" title="Unit Conversions and Constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

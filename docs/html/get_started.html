@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started - An introductory walk through &mdash; Efficalc 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Next Steps: Superpowered Features" href="next_steps.html" />
+    <link rel="prev" title="Learn about how to use Efficalc Cloud" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Efficalc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started - An introductory walk through</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#register-as-a-user">Register as a user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-template">Create a Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-a-custom-template">Writing a Custom Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-project">Create a Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-calculation">Create a Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-design-portal">Using the Design Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculation-reports">Calculation Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">Next Steps: Superpowered Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_calc.html">Example Calculation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Calculation Objects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calc_objects.html">Calculation Object Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Calculation Object Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Helpful Methods and Constants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="section_methods.html">Section Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Calculation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="units_constants.html">Unit Conversions and Constants</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Notes on Using Efficalc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="styling.html">Styling Variable Names and Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_encomp.html">Using Python with Efficalc</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="steel_sections.html">Steel Sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aluminum_sections.html">Aluminum Sections</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Efficalc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started - An introductory walk through</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/get_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="getting-started-an-introductory-walk-through">
+<span id="start"></span><h1>Getting Started - An introductory walk through<a class="headerlink" href="#getting-started-an-introductory-walk-through" title="Permalink to this heading"></a></h1>
+<p>If this is your first time to the site then you’ve come to the right place!</p>
+<p>This section will walk you through the application and point you to some helpful resources
+for learning more and becoming a master calculation builder.</p>
+<div class="section" id="register-as-a-user">
+<h2>Register as a user<a class="headerlink" href="#register-as-a-user" title="Permalink to this heading"></a></h2>
+<p>The first step you can take is to create an account on the registration page. All you need is an email
+address and password.</p>
+<img alt="Registration page" class="align-center" src="_images/register.png" />
+</div>
+<div class="section" id="create-a-template">
+<h2>Create a Template<a class="headerlink" href="#create-a-template" title="Permalink to this heading"></a></h2>
+<p>Next you’ll need to create a new template file for building your first calculation.</p>
+<p>Navigate to the Templates page and click on the green “+” button to add a new template.</p>
+<img alt="Template page" class="align-center" src="_images/template.png" />
+<p>A new form will pop up to create the template. We can just enter the name and description for your
+new template and then click “Submit” when it all looks good. For this example the template will be
+a triangle calculator.</p>
+<img alt="New template form" class="align-center" src="_images/new_template_form.png" />
+<p>Some simple code will automatically be placed in your template file for now, but in the next section
+we will customize it.</p>
+</div>
+<div class="section" id="writing-a-custom-template">
+<h2>Writing a Custom Template<a class="headerlink" href="#writing-a-custom-template" title="Permalink to this heading"></a></h2>
+<p>Now that our template is created and named, let’s customize it. A template defines the inputs, necesary steps,
+and results of a calculation. It’s like a recipe for calculations.</p>
+<p>To enter the template content editor, we can click the the card for the template we just created.</p>
+<img alt="Template card" class="align-center" src="_images/template_card_click.png" />
+<p>This should take you to a new page that looks like this:</p>
+<img alt="Template content editor page" class="align-center" src="_images/template_content.png" />
+<p>On the left is a text editor for writing the “recipe”, and on the right is a preview of what the calculation
+report will look like. There should be a very simple template here to get you started. We will make some
+changes now, but to see all of the available features and some more complex examples visit the <a class="reference internal" href="calc_objects.html#objects"><span class="std std-ref">Calculation Object Details</span></a>
+and <a class="reference internal" href="example_calc.html#example-calc"><span class="std std-ref">Example Calculation</span></a> sections of the documentation.</p>
+<p>Let’s start by clearing out the starter code. It’s important to note that you should always keep the utilities
+import at the top of the file and that your calculation should be within a function named <cite>calculation</cite>. Also note
+that templates are written in Python. If you are unsure about how use it there are some notes in the <a class="reference internal" href="python_encomp.html#python"><span class="std std-ref">Using Python with Efficalc</span></a>
+section and tons of free resources online to help.</p>
+<p>The blank template will look like this:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Let’s edit our template to calculate the hypotenuse, area, and perimeter of a right triangle using inches as
+our unit of measurement. We can start with the title and some assumptions to make it clear what this template does:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Triangle Calculator&quot;</span><span class="p">)</span>
+
+<span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;This is a right triangle&quot;</span><span class="p">)</span>
+<span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;Sides a and b are the perpendicular sides of the triangle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To define the triangle, we can use the lengths of the two perpendicular sides. These will be the inputs:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Side A of the triangle&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Side B of the triangle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The hypotenuse will be used in calculating the perimeter so we will assign it to a variable, but the others
+will not be used; they can be defined without assigning to a variable (like assumption and title):</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;The hypotenuse of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;in^2&quot;</span><span class="p">,</span> <span class="s2">&quot;Area of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Perimeter of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Putting it all together gives us:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efficalc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">calculation</span><span class="p">():</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>    <span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Triangle Calculator&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;This is a right triangle&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">Assumption</span><span class="p">(</span><span class="s2">&quot;Sides a and b are the perpendicular sides of the triangle&quot;</span><span class="p">)</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="n">a</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Side A of the triangle&quot;</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">b</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Side B of the triangle&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="n">h</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;The hypotenuse of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;in^2&quot;</span><span class="p">,</span> <span class="s2">&quot;Area of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">Calculation</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="s2">&quot;Perimeter of the triangle&quot;</span><span class="p">,</span> <span class="n">result_check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Before anything else, don’t forget to click “Save Changes”. You will see the template preview update to match
+this new code we just wrote. If there are any errors in the code, they will display in a red banner at the top
+of the page:</p>
+<img alt="Template content editor page with an error" class="align-center" src="_images/template_error.png" />
+<p>And now our template is ready to be used!</p>
+</div>
+<div class="section" id="create-a-project">
+<h2>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this heading"></a></h2>
+<p>Next we will navigate to the “Projects” page where we can start creating projects and calculations. Calculations will
+always be organized within a project.</p>
+<img alt="Projects page" class="align-center" src="_images/project.png" />
+<p>Creating a new project is just like creating a new template. Click on the green “+” to open the new project form,
+add the name and description for the project, and then click submit.</p>
+<img alt="New project form" class="align-center" src="_images/new_project_form.png" />
+</div>
+<div class="section" id="create-a-calculation">
+<h2>Create a Calculation<a class="headerlink" href="#create-a-calculation" title="Permalink to this heading"></a></h2>
+<p>Now that we have a project and a template created, we can add our first calculation. Click on the green “+” button
+next to the “Calculations” title to open the new calculation form.</p>
+<p>Enter a name and description for the calculation and also choose our template as the calculation’s template. In the future
+all of your templates will show up in the drop down menu.</p>
+<p>Here you can create as many calculations as you need from your available templates. For example, if you create a template to
+design steel beams, you can create a new calculation for every beam you need to design.</p>
+<p>For this example, we will create calculations for a big triangle and small triangle:</p>
+<img alt="New calculation form filled out for big and small triangle" class="align-center" src="_images/new_calc_form.png" />
+</div>
+<div class="section" id="using-the-design-portal">
+<h2>Using the Design Portal<a class="headerlink" href="#using-the-design-portal" title="Permalink to this heading"></a></h2>
+<p>Since we have everything created, let’s dig into the design portal where these templates and calculations work together for
+a seemless and efficient design workflow. Click on a calculation card to enter the design portal for that calculation:</p>
+<img alt="Calculation card" class="align-center" src="_images/calculation_card.png" />
+<p>The design portal will show the calculation instance separated into inputs and results. If you have calculations
+which were not marked with <code class="code docutils literal notranslate"><span class="pre">result_check=True</span></code>, they will not show up in this results check. This allows you to choose
+which results you care most about during design and filters out the intermediate or less important calculations.</p>
+<p>When a calculation is first created, the inputs will match the defaults you chose in the template. Since we chose to work on
+the small triangle first, we can change the inputs to match a small triangle’s dimensions, and refresh the results:</p>
+<img alt="Design portal with refresh button highlighted" class="align-center" src="_images/design_portal_refresh.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refreshing results will also save the current inputs for your calculation. Even if you log out or work on other
+calculations, this calculation will keep the latest inputs that you used as long as you refreshed the results
+with those inputs.</p>
+</div>
+<p>Since we also want to design a large triangle, we can navigate back to the Projects page, click on the large triangle
+calculation card, and update these inputs accordingly:</p>
+<img alt="Design portal results with large triangle" class="align-center" src="_images/design_portal_large_triangle.png" />
+<p>These two different calculations will share the same template but have independent inputs and results.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Calculations are always tied to the template, so if you change the template then all of the connected
+calculations will reflect that change.</p>
+</div>
+</div>
+<div class="section" id="calculation-reports">
+<h2>Calculation Reports<a class="headerlink" href="#calculation-reports" title="Permalink to this heading"></a></h2>
+<p>Another helpful feature in the Design Portal are the automatic calculation reports. These reports can help in a number of ways:</p>
+<ul class="simple">
+<li><p>They can help you understand how results are being calculated in the design process</p></li>
+<li><p>They provide a clear and readable format to share the calculation for peer reviews or sharing the calculation</p></li>
+<li><p>Your submittal workflow becomes a one-click process. When your project and calculations need to be submitted for review,
+the calculation report is already prepared.</p></li>
+</ul>
+<img alt="Calculation report buttons highlighted" class="align-center" src="_images/calc_report_buttons.png" />
+<p>There are two ways of viewing the calculation report:</p>
+<ol class="arabic simple">
+<li><p>The preview button</p></li>
+<li><p>The “Open in new tab” button</p></li>
+</ol>
+<p>The preview button will display the report in a pop up window over the design portal. This can be useful in the design process
+to dig deeper into how a result is being calculated.</p>
+<img alt="Design portal with calculation report preview" class="align-center" src="_images/calc_report_preview.png" />
+<p>The “Open in new tab” button will open just the calculation report in a new tab of your browser. This is the ideal setup for
+printing the report or for referencing the report in one tab while working on the design portal in another tab. If the inputs
+are updated, the calculation report tab can be refreshed to display updated calculations.</p>
+<img alt="Calculation report in a new tab" class="align-center" src="_images/calc_report_tab.png" />
+</div>
+<div class="section" id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading"></a></h2>
+<p>From here, the app is your oyster! Create any templates you can imagine and use them for every project that comes your way.</p>
+<p>If want to dive deeper and learn more about using Efficalc, we have a number of helpful resources listed below. If
+at any point you want to contact us or give some feedback, we would love to hear from you. We can be contacted through the
+contact form on the site or by email at <a class="reference external" href="mailto:team&#37;&#52;&#48;encompapp&#46;com">team<span>&#64;</span>encompapp<span>&#46;</span>com</a>.</p>
+<p>Here are some links to more detailed documentation:</p>
+<ul class="simple">
+<li><p>A more advanced example: <a class="reference internal" href="example_calc.html#example-calc"><span class="std std-ref">Example Calculation</span></a></p></li>
+<li><p>Detailed descriptions of the calculation objects: <a class="reference internal" href="calc_objects.html#objects"><span class="std std-ref">Calculation Object Details</span></a></p></li>
+<li><p>Some notes about using Python with efficalc: <a class="reference internal" href="python_encomp.html#python"><span class="std std-ref">Using Python with Efficalc</span></a></p></li>
+<li><p>The documentation home page: <a class="reference internal" href="index.html#home-page"><span class="std std-ref">Learn about how to use Efficalc Cloud</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Learn about how to use Efficalc Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="next_steps.html" class="btn btn-neutral float-right" title="Next Steps: Superpowered Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Andrew Young.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
